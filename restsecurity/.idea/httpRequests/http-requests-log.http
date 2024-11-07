@@ -1,0 +1,155 @@
+GET http://localhost:7070/api/protected/user_demo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQiLCJleHAiOjE3MTI4NDMzMzYsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQifQ.3V8Ih8rjXeD0nlcgCAKdoRPL-w6GEESvopq4DD3nw2s
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-04-11T151938.200.json
+
+###
+
+POST http://localhost:7070/api/auth/login
+Content-Length: 53
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"username":"Coolgutmand",
+"password":"coolkode21"
+}
+
+<> 2024-04-11T151856.200.json
+
+###
+
+POST http://localhost:7070/api/auth/register
+Content-Length: 55
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+
+"username":"Coolgutmand",
+"password":"coolkode21"
+
+}
+
+<> 2024-04-11T151846.201.json
+
+###
+
+POST http://localhost:7070/api/auth/register
+Content-Length: 55
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+
+"username":"Coolgutmand",
+"password":"coolkode21"
+
+}
+
+<> 2024-04-11T151342.500.json
+
+###
+
+POST http://localhost:7070/api/auth/register
+Content-Length: 55
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+
+"username":"Coolgutmand",
+"password":"coolkode21"
+
+}
+
+<> 2024-04-11T151153.500.json
+
+###
+
+GET http://localhost:7070/api/getAll
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-04-11T150509.200.json
+
+###
+
+POST http://localhost:7070/api/create
+Content-Length: 17
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"name":"test"
+}
+
+<> 2024-04-11T150458.200.json
+
+###
+
+POST http://localhost:7070/api/create
+Content-Length: 17
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"name":"test"
+}
+
+<> 2024-04-11T150239.500.json
+
+###
+
+GET http://localhost:7070/api/getAll
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-04-11T150108.404.json
+
+###
+
+GET http://localhost:7070/api/getAll
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-04-11T145628.404.json
+
+###
+
+GET http://localhost:7070/api/getAll
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-04-11T143854.200.json
+
+###
+
+GET http://localhost:7070/api/getAll
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-04-11T143747.200.json
+
+###
+

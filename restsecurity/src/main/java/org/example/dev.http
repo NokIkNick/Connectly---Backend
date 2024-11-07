@@ -1,0 +1,32 @@
+POST http://localhost:7070/api/auth/register
+
+{
+
+"username":"Coolgutmand",
+"password":"coolkode21"
+
+}
+###
+
+POST http://localhost:7070/api/auth/login
+
+{
+"username":"Coolgutmand",
+"password":"coolkode21"
+}
+
+###
+
+GET http://localhost:7070/api/protected/user_demo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQiLCJleHAiOjE3MTI4NDMzMzYsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQifQ.3V8Ih8rjXeD0nlcgCAKdoRPL-w6GEESvopq4DD3nw2s
+###
+
+
+GET http://localhost:7070/api/getAll
+###
+
+POST http://localhost:7070/api/create
+
+{
+"name":"test"
+}
