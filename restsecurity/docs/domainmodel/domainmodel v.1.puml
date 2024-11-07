@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+Title Domain Model Connectly v1:
+hide circle
+hide methods
+
+class Application {}
+
+class User {
+    - interests[]
+}
+
+class Connection {}
+
+class Topic {}
+
+class Post {}
+
+class Feed {}
+
+Application "1" -- "*" User
+User "1" <-- "*" Post
+Post "*" <-- "*" Topic
+Feed "*" <-- "*" Post
+Feed "*" <-- "*" Topic
+Application "1" -- "*" Feed
+User "*" <-- "*" Connection
+
+
+
+
+@enduml
