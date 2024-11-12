@@ -59,6 +59,7 @@ public class HibernateConfig {
         configuration.addAnnotatedClass(Post.class);
         configuration.addAnnotatedClass(Connection.class);
         configuration.addAnnotatedClass(Topic.class);
+        configuration.addAnnotatedClass(ConnectionRequest.class);
 
 
 
