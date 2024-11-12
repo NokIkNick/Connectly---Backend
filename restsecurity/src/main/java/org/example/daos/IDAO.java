@@ -15,6 +15,4 @@ public interface IDAO<T, K> {
     T update(T in, K id) throws ApiException;
 
     T delete(K id) throws ApiException;
-
-
 }

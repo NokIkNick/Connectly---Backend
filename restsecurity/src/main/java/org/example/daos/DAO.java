@@ -3,8 +3,6 @@ package org.example.daos;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
 import org.example.config.HibernateConfig;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class DAO<T, K> implements IDAO<T, K> {

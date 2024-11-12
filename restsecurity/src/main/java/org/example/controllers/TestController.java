@@ -1,19 +1,18 @@
 package org.example.controllers;
 
 import io.javalin.http.Handler;
-import org.example.daos.IDAO;
-import org.example.daos.MemoryDAO;
-import org.example.daos.TestMemoryDao;
+import org.example.daos.TestDAO;
 import org.example.dtos.TestDTO;
 
 public class TestController {
 
     private static TestController instance;
 
-    private static TestMemoryDao testDao = TestMemoryDao.getInstance();
+    private static TestDAO testDao;
 
-    public static TestController getInstance() {
+    public static TestController getInstance(boolean isTesting) {
         if (instance == null) {
+            testDao = TestDAO.getInstance(isTesting );
             instance = new TestController();
         }
         return instance;

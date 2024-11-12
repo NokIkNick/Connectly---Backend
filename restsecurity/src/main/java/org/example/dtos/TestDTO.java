@@ -2,8 +2,6 @@ package org.example.dtos;
 
 import lombok.*;
 
-import java.util.Objects;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

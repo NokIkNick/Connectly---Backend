@@ -3,11 +3,8 @@ package org.example.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.apibuilder.EndpointGroup;
 import io.javalin.security.RouteRole;
-import jakarta.persistence.EntityManagerFactory;
 import org.example.controllers.SecurityController;
 import org.example.controllers.TestController;
-import org.example.daos.TestMemoryDao;
-
 import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class Routes {
@@ -34,7 +31,7 @@ public class Routes {
     }
 
     public static EndpointGroup getTestRoutes(){
-        tc = TestController.getInstance();
+        tc = TestController.getInstance(true);
         return ()-> {
             get("/getAll", tc.getAllTest());
             post("/create",tc.createTest());

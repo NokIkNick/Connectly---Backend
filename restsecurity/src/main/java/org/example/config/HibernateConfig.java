@@ -1,6 +1,9 @@
 package org.example.config;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
+
+import org.example.model.Connection;
+import org.example.model.ConnectionRequest;
 import org.example.model.Role;
 import org.example.model.User;
 import org.hibernate.SessionFactory;
@@ -57,6 +60,8 @@ public class HibernateConfig {
     private static void getAnnotationConfiguration(Configuration configuration) {
         configuration.addAnnotatedClass(User.class);
         configuration.addAnnotatedClass(Role.class);
+        configuration.addAnnotatedClass(Connection.class);
+        configuration.addAnnotatedClass(ConnectionRequest.class);
 
 
     }
@@ -128,6 +133,7 @@ public class HibernateConfig {
         }
     }
 
+    @SuppressWarnings("unused")
     private static EntityManagerFactory getEntityManagerFactory(boolean isTest){
         if(isTest) return getEntityManagerFactoryConfigForTesting();
         return getEntityManagerFactoryConfig();
