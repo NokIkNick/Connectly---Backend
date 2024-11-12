@@ -1,10 +1,7 @@
 package dk.connectly.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.ArrayList;
@@ -27,11 +24,14 @@ public class User {
     private String firstName;
     private String lastName;
 
-    @OneToMany(mappedBy = "firstUser")
+    @OneToMany(mappedBy = "firstUser", fetch = FetchType.EAGER)
     private List<Connection> connections = new ArrayList<>();
 
     @OneToMany(mappedBy = "author")
     private List<Post> posts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "receiver", fetch = FetchType.EAGER)
+    private List<ConnectionRequest> connectionRequests = new ArrayList<>();
 
 
     @JoinTable(name = "user_role", joinColumns = {

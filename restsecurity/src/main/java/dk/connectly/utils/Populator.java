@@ -92,14 +92,22 @@ public class Populator {
             connection2.setConnectionType(ConnectionType.WORK);
             em.persist(connection2);
 
-            Connection connection3 = new Connection();
-            connection3.setFirstUser(admin);
-            connection3.setSecondUser(user1);
-            connection3.setConnectionType(ConnectionType.FAMILY);
-            em.persist(connection3);
+            // Create Connection Requests
+            ConnectionRequest request1 = new ConnectionRequest();
+            request1.setRequester(user1);
+            request1.setReceiver(user2);
+            request1.setSeen(false);
+
+            ConnectionRequest request2 = new ConnectionRequest();
+            request2.setRequester(user2);
+            request2.setReceiver(admin);
+            request2.setSeen(true);
+
+            em.persist(request1);
+            em.persist(request2);
 
             tx.commit();
-            System.out.println("Database populated successfully with sample data.");
+            System.out.println("Database populated successfully with sample data, including ConnectionRequests.");
         } catch (Exception e) {
             if (tx.isActive()) {
                 tx.rollback();
