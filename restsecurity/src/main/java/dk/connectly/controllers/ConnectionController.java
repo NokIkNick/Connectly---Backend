@@ -1,6 +1,6 @@
-package org.example.controllers;
+package dk.connectly.controllers;
 
-import org.example.daos.ConnectionDAO;
+import dk.connectly.daos.ConnectionDAO;
 
 public class ConnectionController {
   private static ConnectionDAO connectionDAO;

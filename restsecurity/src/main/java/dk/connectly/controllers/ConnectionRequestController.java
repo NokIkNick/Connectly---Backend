@@ -35,7 +35,7 @@ public class ConnectionRequestController {
       try{
         NewConnectionDTO connectionDTO = ctx.bodyAsClass(NewConnectionDTO.class);
         UserDTO connector = tokenUtils.getUserWithRolesFromToken(ctx.header("Authorization"));
-        connectionRequestDAO.setupNewRequest(connector, connectionDTO.connection, connectionDTO.types);
+        connectionRequestDAO.setupNewRequest(connector, connectionDTO.connection, connectionDTO.connectionTypes);
 
         ctx.status(HttpStatus.CREATED).json(connector);
       }catch(EntityExistsException | ApiException e){
