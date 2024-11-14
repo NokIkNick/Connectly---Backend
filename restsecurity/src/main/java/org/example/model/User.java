@@ -17,10 +17,10 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    @Id
     @Column(unique = true, nullable = false)
     private String Username;
     private String password;
+    @Id
     @Column(unique = true, nullable = false)
     private String email;
 
@@ -44,6 +44,7 @@ public class User {
         addRole(roles);
         this.email = email;
     }
+
     public void addRole(Role role){
         if(role != null && !roles.contains(role)){
             roles.add(role);

@@ -10,6 +10,4 @@ public class ApiException extends Exception{
         super(msg+", "+code);
         status = HttpStatus.forStatus(code);
     }
-
-
 }

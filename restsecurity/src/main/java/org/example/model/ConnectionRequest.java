@@ -23,4 +23,9 @@ public class ConnectionRequest {
     Set<ConnectionType> types;
     User connector;
     User connection;
+    public ConnectionRequest(User connector, User connection, Set<ConnectionType> types) {
+        this.types = types;
+        this.connector = connector;
+        this.connection = connection;
+    }
 }

@@ -33,5 +33,9 @@ public class UserDTO {
     }
 
 
+    public String getId(){
+        return getEmail();
+    }
+
 
 }

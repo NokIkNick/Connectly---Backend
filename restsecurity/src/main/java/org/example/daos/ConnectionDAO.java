@@ -6,11 +6,11 @@ import org.example.model.Connection;
 
 public class ConnectionDAO extends DAO<Connection, Integer> {
 
-    private static TestDAO instance;
+    private static ConnectionDAO instance;
 
-    public static TestDAO getInstance(boolean isTesting) {
+    public static ConnectionDAO getInstance(boolean isTesting) {
         if (instance == null) {
-            instance = new TestDAO(isTesting);
+            instance = new ConnectionDAO(isTesting);
         }
         return instance;
     }
@@ -19,20 +19,19 @@ public class ConnectionDAO extends DAO<Connection, Integer> {
         super(Connection.class, isTesting);
     }
 
-    public ConnectionDTO acceptRequest(ConnectionRequestDTO CRDTO){
+    public boolean acceptRequest(ConnectionRequestDTO CRDTO){
         
         try(var em = emf.createEntityManager()){
-            Connection conn = em.createQuery("select c from connection c where c.connector = " + CRDTO.getConnector() + " and c.connection = " + CRDTO.getConnection(), Connection.class).getSingleResult();
+            String connectors = CRDTO.getConnector() + ", " + CRDTO.getConnection();
+            Connection conn = em.createQuery("select c from connection c where c.connector in (" + connectors + ") or c.connection in (" + connectors + ")", Connection.class).getSingleResult();
             if(conn != null){
                 ConnectionDTO CDTO = new ConnectionDTO(conn);
-                return CDTO;
+                return false;
             }
             conn = new Connection(CRDTO, em);
             ConnectionRequestDTO connReqBack = new ConnectionRequestDTO(CRDTO.getConnection(), CRDTO.getConnector(), CRDTO.getTypes());
-            Connection connBack = new Connection(connReqBack, em);
             create(conn);
-            create(connBack);
-            return new ConnectionDTO(connBack);
+            return true;
         }
     }
 
