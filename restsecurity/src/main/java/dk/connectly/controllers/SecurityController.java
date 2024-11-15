@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.nimbusds.jose.JOSEException;
 import dk.connectly.daos.SecurityDao;
+import dk.connectly.dtos.LoginDTO;
 import dk.connectly.dtos.TokenDTO;
 import dk.connectly.dtos.UserDTO;
 import dk.connectly.exceptions.ApiException;
@@ -36,12 +37,11 @@ public class SecurityController {
         return (ctx) -> {
             ObjectNode returnObject = objectMapper.createObjectNode();
             try{
-                UserDTO userInput = ctx.bodyAsClass(UserDTO.class);
-                User created = securityDao.createUser(userInput.getUsername(), userInput.getPassword());
-
+                LoginDTO userInput = ctx.bodyAsClass(LoginDTO.class);
+                User created = securityDao.createUser(userInput.getEmail(), userInput.getPassword());
 
                 String token = tokenUtils.createToken(new UserDTO(created));
-                ctx.status(HttpStatus.CREATED).json(new TokenDTO(token, userInput.getUsername()));
+                ctx.status(HttpStatus.CREATED).json(new TokenDTO(token, userInput.getEmail()));
             }catch(EntityExistsException | ApiException e){
                 ctx.status(HttpStatus.UNPROCESSABLE_CONTENT);
                 ctx.json(returnObject.put("msg", "User already exists"));
@@ -53,12 +53,11 @@ public class SecurityController {
         return (ctx) -> {
             ObjectNode returnObject = objectMapper.createObjectNode();
             try{
-                UserDTO user = ctx.bodyAsClass(UserDTO.class);
-                System.out.println("USER IN LOGIN: "+ user);
+                LoginDTO user = ctx.bodyAsClass(LoginDTO.class);
 
-                User verifiedUserEntity = securityDao.getVerifiedUser(user.getUsername(), user.getPassword());
+                User verifiedUserEntity = securityDao.getVerifiedUser(user.getEmail(), user.getPassword());
                 String token = tokenUtils.createToken(new UserDTO(verifiedUserEntity));
-                ctx.status(200).json(new TokenDTO(token, user.getUsername()));
+                ctx.status(200).json(new TokenDTO(token, user.getEmail())); 
 
             }catch(EntityNotFoundException | ValidationException | ApiException e){
                 ctx.status(401);

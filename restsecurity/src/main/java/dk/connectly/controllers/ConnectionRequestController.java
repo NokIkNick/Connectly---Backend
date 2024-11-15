@@ -1,11 +1,10 @@
 package dk.connectly.controllers;
 
 import dk.connectly.daos.ConnectionRequestDAO;
+import dk.connectly.dtos.ConnectionRequestDTO;
 import dk.connectly.dtos.NewConnectionDTO;
-import dk.connectly.dtos.TokenDTO;
 import dk.connectly.dtos.UserDTO;
 import dk.connectly.exceptions.ApiException;
-import dk.connectly.model.User;
 import dk.connectly.utils.TokenUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,13 +33,13 @@ public class ConnectionRequestController {
       ObjectNode returnObject = objectMapper.createObjectNode();
       try{
         NewConnectionDTO connectionDTO = ctx.bodyAsClass(NewConnectionDTO.class);
-        UserDTO connector = tokenUtils.getUserWithRolesFromToken(ctx.header("Authorization"));
-        connectionRequestDAO.setupNewRequest(connector, connectionDTO.connection, connectionDTO.connectionTypes);
+        UserDTO connector = tokenUtils.getUserWithRolesFromToken(ctx.header("Authorization").split(" ")[1]);
+        ConnectionRequestDTO DTO = connectionRequestDAO.setupNewRequest(connector, connectionDTO.connection, connectionDTO.connectionTypes);
 
-        ctx.status(HttpStatus.CREATED).json(connector);
+        ctx.status(HttpStatus.CREATED).json(DTO);
       }catch(EntityExistsException | ApiException e){
         ctx.status(HttpStatus.UNPROCESSABLE_CONTENT);
-        ctx.json(returnObject.put("msg", "User already exists"));
+        ctx.json(returnObject.put("msg", e.getMessage() + " already exists"));
       }
     };
   }

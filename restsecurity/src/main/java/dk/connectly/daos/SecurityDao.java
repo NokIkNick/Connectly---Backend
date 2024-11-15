@@ -23,9 +23,9 @@ public class SecurityDao extends DAO<User, String> {
     }
 
     public User createUser(String username, String password){
-        User user = new User();
-        user.setEmail(username);
-        user.setPassword(password);
+        User user = new User(password, username);
+        //user.setEmail(username);
+        //user.setPassword(password); // bypasses the salting & doesn't use the constructor
         try(var em = emf.createEntityManager()){
             Role role = em.find(Role.class, "USER");
             if(role == null){
@@ -33,9 +33,7 @@ public class SecurityDao extends DAO<User, String> {
                 em.persist(role);
             }
             user.addRole(role);
-            em.getTransaction().begin();
-            em.persist(user);
-            em.getTransaction().commit();
+            create(user);
         }
         return user;
     }
@@ -43,7 +41,7 @@ public class SecurityDao extends DAO<User, String> {
 
     public User getVerifiedUser(String username, String password) throws ValidationException {
         try(var em = emf.createEntityManager()){
-            List<User> users = em.createQuery("select u from users u", User.class).getResultList();
+            List<User> users = em.createQuery("select u from User u", User.class).getResultList();
             users.stream().forEach(user -> System.out.println(user.getEmail()+" "+user.getPassword()));
             User user = em.find(User.class, username);
             if(user == null){
