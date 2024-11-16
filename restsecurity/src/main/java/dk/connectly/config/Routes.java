@@ -23,6 +23,7 @@ public class Routes {
         crc = ConnectionRequestController.getInstance(isTesting);
         cc = ConnectionController.getInstance(isTesting);
         return () -> {
+            before(sc.authenticate());
             path("/", () -> {
                 get("/", ctx -> ctx.json(objectMapper.createObjectNode().put("Message", "Connected Successfully")), roles.ANYONE);
             });
@@ -35,7 +36,6 @@ public class Routes {
                 put("/request/confirm", cc.acceptRequest(), roles.ANYONE);
             });
             path("/protected", () -> {
-                before(sc.authenticate());
                 get("/user_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.USER);
                 get("/admin_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.ADMIN);
             });
