@@ -3,6 +3,7 @@ package dk.connectly.controllers;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import dk.connectly.daos.ConnectionDAO;
+import dk.connectly.dtos.ConnectionDTO;
 import dk.connectly.dtos.ConnectionRequestDTO;
 import dk.connectly.dtos.UserDTO;
 import dk.connectly.exceptions.ApiException;
@@ -37,9 +38,9 @@ public class ConnectionController {
         }
         String token = ctx.header("Authorization").split(" ")[1];
         UserDTO connector = tokenUtils.getUserWithRolesFromToken(token);
-        connectionDAO.acceptRequest(CRDTO);
+        ConnectionDTO DTO = connectionDAO.acceptRequest(CRDTO);
 
-        ctx.status(HttpStatus.CREATED).json(connector);
+        ctx.status(HttpStatus.CREATED).json(DTO);
       }catch(EntityExistsException | ApiException e){
         ctx.status(HttpStatus.UNPROCESSABLE_CONTENT);
         ctx.json(returnObject.put("msg", e.getMessage() + " already exists"));
