@@ -16,16 +16,16 @@ import jakarta.persistence.Convert;
 @Setter
 public class ConnectionDTO implements DTO<Integer> {
     Integer id;
-    User firstUser;
-    User secondUSer;
+    UserDTO firstUser;
+    UserDTO secondUSer;
 
     @Convert(converter = ConnectionTypeSetConverter.class)
     Set<ConnectionType> types;
 
     public ConnectionDTO(Connection conn){
         this.id = conn.getId();
-        this.firstUser = conn.getFirstUser();
-        this.secondUSer = conn.getSecondUser();
+        this.firstUser = new UserDTO(conn.getFirstUser());
+        this.secondUSer = new UserDTO(conn.getSecondUser());
         this.types = conn.getConnectionType();
     }
 

@@ -5,6 +5,9 @@ import lombok.*;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import dk.connectly.utils.ConnectionType;
 import dk.connectly.utils.ConnectionTypeSetConverter;
 

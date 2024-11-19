@@ -6,9 +6,14 @@ import dk.connectly.controllers.ConnectionController;
 import dk.connectly.controllers.ConnectionRequestController;
 import dk.connectly.controllers.SecurityController;
 import dk.connectly.controllers.TestController;
+import dk.connectly.daos.ConnectionDAO;
+import dk.connectly.dtos.ConnectionDTO;
+import dk.connectly.model.Connection;
 import io.javalin.apibuilder.EndpointGroup;
 import io.javalin.security.RouteRole;
 import static io.javalin.apibuilder.ApiBuilder.*;
+
+import java.util.List;
 
 public class Routes {
     private static SecurityController sc;
@@ -34,6 +39,13 @@ public class Routes {
             path("/connection", () -> {
                 post("/request/new", crc.setupRequest(), roles.ANYONE); // To Do change back to roles.USER once authenticate can correctly identify USER
                 put("/request/confirm", cc.acceptRequest(), roles.ANYONE);
+                get("/test", (ctx) -> {
+                    var cdao = ConnectionDAO.getInstance(false);
+                    List<Connection> conns = cdao.getAll();
+                    ctx.json(conns.stream().map(x-> {
+                        return new ConnectionDTO(x);
+                    }).toList());
+                }, roles.ANYONE);
             });
             path("/protected", () -> {
                 get("/user_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.USER);

@@ -4,6 +4,12 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.mindrot.jbcrypt.BCrypt;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -15,6 +21,7 @@ import java.util.Set;
 @Table(name ="users")
 @AllArgsConstructor
 @NoArgsConstructor
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
 public class User {
     @Id
     @Column(unique = true, nullable = false)
