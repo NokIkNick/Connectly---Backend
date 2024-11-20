@@ -1,5 +1,6 @@
 package dk.connectly.model;
 
+import dk.connectly.dtos.PostDTO;
 import dk.connectly.utils.ConnectionType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -33,5 +34,6 @@ public class Post {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Topic> topics;
+
 
 }

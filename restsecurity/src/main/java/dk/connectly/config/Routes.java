@@ -1,6 +1,7 @@
 package dk.connectly.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dk.connectly.controllers.PostController;
 import dk.connectly.controllers.SecurityController;
 import dk.connectly.controllers.TestController;
 import io.javalin.apibuilder.EndpointGroup;
@@ -36,6 +37,15 @@ public class Routes {
         return ()-> {
             get("/getAll", tc.getAllTest());
             post("/create",tc.createTest());
+        };
+    }
+
+    public static EndpointGroup getPostRoutes(){
+        return () -> {
+            path("/post", () -> {
+                post("/create", PostController.createPost(), roles.ANYONE);
+                get("?category=visibility?page=1", PostController.getPostsByVisibility(), roles.ANYONE);
+            });
         };
     }
 

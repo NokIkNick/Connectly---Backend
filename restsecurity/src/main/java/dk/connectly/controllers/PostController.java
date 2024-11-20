@@ -1,15 +1,56 @@
 package dk.connectly.controllers;
 
-import java.util.logging.Handler;
+import dk.connectly.daos.PostDAO;
+import dk.connectly.dtos.PostDTO;
+import dk.connectly.exceptions.ApiException;
+import dk.connectly.model.Post;
+
+import dk.connectly.model.User;
+import io.javalin.http.Handler;
 
 public class PostController {
+    private static PostController instance;
+    private static PostDAO postDAO;
 
     private PostController() {
 
     }
 
-    public static Handler createPost() {
-        return null;
+    public static PostController getInstance() {
+        if (instance == null) {
+            instance = new PostController();
+            postDAO = PostDAO.getInstance();
+        }
+        return instance;
     }
 
+
+
+    public static Handler createPost() {
+        return (ctx) -> {
+            try {
+                PostDTO postDTO = ctx.bodyAsClass(PostDTO.class);
+                Post post = new Post(postDTO);
+                postDAO.create(post);
+                ctx.status(201);
+            } catch (Exception e) {
+                ctx.status(500);
+                throw new ApiException(500 ,"Error while creating post" + e.getMessage());
+            }
+        };
+    }
+
+
+    public static Handler getPostsByVisibility () {
+        return (ctx) -> {
+            try {
+                String visibility = ctx.pathParam("visibility");
+                User user = ctx.sessionAttribute("user");
+                ctx.json(postDAO.getPostsByVisibility(visibility, user));
+            } catch (Exception e) {
+                ctx.status(500);
+                throw new ApiException(500 ,"Error while getting posts" + e.getMessage());
+            }
+        };
+    }
 }
