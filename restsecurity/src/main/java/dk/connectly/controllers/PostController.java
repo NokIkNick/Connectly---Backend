@@ -12,6 +12,7 @@ public class PostController {
     private static PostController instance;
     private static PostDAO postDAO;
 
+
     private PostController() {
 
     }
@@ -30,8 +31,9 @@ public class PostController {
         return (ctx) -> {
             try {
                 PostDTO postDTO = ctx.bodyAsClass(PostDTO.class);
-                Post post = new Post(postDTO);
-                postDAO.create(post);
+                User postAuthor = ctx.sessionAttribute("user");
+                Post newPost = new Post(postDTO, postAuthor);
+                postDAO.create(newPost);
                 ctx.status(201);
             } catch (Exception e) {
                 ctx.status(500);

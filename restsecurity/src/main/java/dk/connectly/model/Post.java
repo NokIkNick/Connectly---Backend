@@ -36,4 +36,12 @@ public class Post {
     private List<Topic> topics;
 
 
+    public Post(PostDTO postDTO, User author) {
+        this.author = author;
+        this.date_created = new Date();
+        this.title = postDTO.getTitle();
+        this.content = postDTO.getContent();
+        this.visibility = postDTO.getVisibility();
+
+    }
 }
