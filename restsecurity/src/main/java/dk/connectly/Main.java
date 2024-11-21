@@ -14,8 +14,7 @@ public class Main {
                 .initiateServer()
                 .setExceptionHandling()
                 .startServer(7070)
-                .setRoutes(Routes.getRoutes(isTesting))
-                .setRoutes(Routes.getPostRoutes())
+                .setRoutes(Routes.setRoutes(isTesting))
                 .checkSecurityRoles(isTesting)
                 .configureCors();
 
