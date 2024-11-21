@@ -18,3 +18,18 @@ message: org.hibernate.query.sqm.UnknownEntityException: Could not resolve root 
 timestamp: 2024-11-21T11:03:08.024420700
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized with roles: [ADMIN, USER], 403
+timestamp: 2024-11-21T12:35:53.504008100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized with roles: [USER], 403
+timestamp: 2024-11-21T12:36:51.871715200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized with roles: [USER], 403
+timestamp: 2024-11-21T12:39:12.213174800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------

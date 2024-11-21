@@ -44,8 +44,8 @@ public class Routes {
     public static EndpointGroup getProtectedRoutes(){
         return () -> {
             path("/post", () -> {
-                post("/create", pc.createPost(), roles.USER, roles.ADMIN);
-                get("/posts", pc.getPostsByVisibility(), roles.USER, roles.ADMIN);
+                post("/create", pc.createPost(), roles.ANYONE);
+                get("/posts", pc.getPostsByVisibility(), roles.ANYONE);
             });
 
         };

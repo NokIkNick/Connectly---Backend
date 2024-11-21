@@ -5,6 +5,7 @@ import dk.connectly.dtos.PostDTO;
 import dk.connectly.exceptions.ApiException;
 import dk.connectly.model.Post;
 
+import dk.connectly.model.Role;
 import dk.connectly.model.User;
 import io.javalin.http.Handler;
 
@@ -49,7 +50,8 @@ public class PostController {
         return (ctx) -> {
             try {
 
-                User user = ctx.sessionAttribute("user");
+                User user = new User("password1","user1@example.com");
+                //User user = ctx.sessionAttribute("user");
                 String visibility = ctx.queryParam("visibility");
                 int page = Integer.parseInt(Objects.requireNonNullElse(ctx.queryParam("page"), "1"));
                 int size = Integer.parseInt(Objects.requireNonNullElse(ctx.queryParam("size"), "10"));
