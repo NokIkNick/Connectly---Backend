@@ -30,3 +30,16 @@ POST http://localhost:7070/api/create
 {
 "name":"test"
 }
+
+
+
+###
+
+POST http://localhost:7070/api/auth/login
+
+{
+"username":"user1@example.com",
+"password":"password1"
+}
+###
+GET  http://localhost:7070/api/post/posts?visibility=FRIEND&page=1

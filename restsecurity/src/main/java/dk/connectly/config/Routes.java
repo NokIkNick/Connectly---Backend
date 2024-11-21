@@ -4,8 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dk.connectly.controllers.PostController;
 import dk.connectly.controllers.SecurityController;
 import dk.connectly.controllers.TestController;
+import dk.connectly.dtos.PostDTO;
+import dk.connectly.model.User;
 import io.javalin.apibuilder.EndpointGroup;
 import io.javalin.security.RouteRole;
+
+import java.util.List;
 
 import static io.javalin.apibuilder.ApiBuilder.*;
 
@@ -13,6 +17,8 @@ public class Routes {
     private static SecurityController sc;
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private static TestController tc;
+    private static PostController pc;
+
 
     public static EndpointGroup getRoutes(boolean isTesting){
         sc = SecurityController.getInstance(isTesting);
@@ -40,14 +46,17 @@ public class Routes {
         };
     }
 
-    public static EndpointGroup getPostRoutes(){
+    public static EndpointGroup getPostRoutes() {
+        pc = PostController.getInstance();
         return () -> {
             path("/post", () -> {
-                post("/create", PostController.createPost(), roles.ANYONE);
-                get("?category=visibility?page=1", PostController.getPostsByVisibility(), roles.ANYONE);
+                post("/create", pc.createPost(), roles.ANYONE);
+                get("/posts", pc.getPostsByVisibility(), roles.ANYONE);
             });
         };
     }
+
+
 
 
     public enum roles implements RouteRole {

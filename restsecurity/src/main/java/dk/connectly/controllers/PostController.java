@@ -8,6 +8,8 @@ import dk.connectly.model.Post;
 import dk.connectly.model.User;
 import io.javalin.http.Handler;
 
+import java.util.Objects;
+
 public class PostController {
     private static PostController instance;
     private static PostDAO postDAO;
@@ -27,7 +29,7 @@ public class PostController {
 
 
 
-    public static Handler createPost() {
+    public Handler createPost() {
         return (ctx) -> {
             try {
                 PostDTO postDTO = ctx.bodyAsClass(PostDTO.class);
@@ -43,12 +45,17 @@ public class PostController {
     }
 
 
-    public static Handler getPostsByVisibility () {
+    public Handler getPostsByVisibility () {
         return (ctx) -> {
+            int size = 10;
             try {
-                String visibility = ctx.pathParam("visibility");
+
+                //User user = new User( "password","user1@example.com");
                 User user = ctx.sessionAttribute("user");
-                ctx.json(postDAO.getPostsByVisibility(visibility, user));
+                String visibility = ctx.queryParam("visibility");
+                int page = Integer.parseInt(Objects.requireNonNullElse(ctx.queryParam("page"), "1"));
+                ctx.json(postDAO.getPostsByVisibility(visibility, user,page, size));
+
             } catch (Exception e) {
                 ctx.status(500);
                 throw new ApiException(500 ,"Error while getting posts" + e.getMessage());
