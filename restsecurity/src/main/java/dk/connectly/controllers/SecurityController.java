@@ -9,6 +9,7 @@ import dk.connectly.dtos.UserDTO;
 import dk.connectly.exceptions.ApiException;
 import dk.connectly.exceptions.NotAuthorizedException;
 import dk.connectly.exceptions.ValidationException;
+import dk.connectly.utils.Utils;
 import io.javalin.http.Handler;
 import io.javalin.http.HttpStatus;
 import jakarta.persistence.EntityExistsException;
@@ -37,11 +38,11 @@ public class SecurityController {
             ObjectNode returnObject = objectMapper.createObjectNode();
             try{
                 UserDTO userInput = ctx.bodyAsClass(UserDTO.class);
-                User created = securityDao.createUser(userInput.getUsername(), userInput.getPassword());
+                User created = securityDao.createUser(userInput.getEmail(), userInput.getPassword());
 
 
                 String token = tokenUtils.createToken(new UserDTO(created));
-                ctx.status(HttpStatus.CREATED).json(new TokenDTO(token, userInput.getUsername()));
+                ctx.status(HttpStatus.CREATED).json(new TokenDTO(token, userInput.getEmail()));
             }catch(EntityExistsException | ApiException e){
                 ctx.status(HttpStatus.UNPROCESSABLE_CONTENT);
                 ctx.json(returnObject.put("msg", "User already exists"));
@@ -56,9 +57,9 @@ public class SecurityController {
                 UserDTO user = ctx.bodyAsClass(UserDTO.class);
                 System.out.println("USER IN LOGIN: "+ user);
 
-                User verifiedUserEntity = securityDao.getVerifiedUser(user.getUsername(), user.getPassword());
+                User verifiedUserEntity = securityDao.getVerifiedUser(user.getEmail(), user.getPassword());
                 String token = tokenUtils.createToken(new UserDTO(verifiedUserEntity));
-                ctx.status(200).json(new TokenDTO(token, user.getUsername()));
+                ctx.status(200).json(new TokenDTO(token, user.getEmail()));
 
             }catch(EntityNotFoundException | ValidationException | ApiException e){
                 ctx.status(401);
@@ -105,8 +106,9 @@ public class SecurityController {
 
     public UserDTO verifyToken(String token) throws ApiException {
         boolean IS_DEPLOYED = (System.getenv("DEPLOYED") != null);
-        //String SECRET = IS_DEPLOYED ? System.getenv("SECRET_KEY") : Utils.getPropertyValue("SECRET_KEY", "config.properties");
-        String SECRET = "ghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgr";
+        //String LOCALSECRET = "ghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgr";
+        String SECRET = IS_DEPLOYED ? System.getenv("SECRET_KEY") : Utils.getPropertyValue("SECRET_KEY", "config.properties");
+
         try {
             if(tokenUtils.tokenIsValid(token, SECRET) && tokenUtils.tokenNotExpired(token)){
                 return tokenUtils.getUserWithRolesFromToken(token);
