@@ -1,0 +1,19 @@
+status: 500
+message: Unrecognized field "username" (class dk.connectly.dtos.UserDTO), not marked as ignorable (3 known properties: "password", "email", "roles"])
+ at [Source: (String)"{
+"username":"admin@example.com",
+"password":"adminpass"
+}"; line: 2, column: 13] (through reference chain: dk.connectly.dtos.UserDTO["username"])
+timestamp: 2024-11-21T13:44:16.487685500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: org.hibernate.query.sqm.UnknownEntityException: Could not resolve root entity 'users'
+timestamp: 2024-11-21T13:44:25.408788500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: inStream parameter is null
+timestamp: 2024-11-21T13:54:50.310793100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
