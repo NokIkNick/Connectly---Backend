@@ -47,13 +47,12 @@ public class PostController {
 
     public Handler getPostsByVisibility () {
         return (ctx) -> {
-            int size = 10;
             try {
 
-                //User user = new User( "password","user1@example.com");
                 User user = ctx.sessionAttribute("user");
                 String visibility = ctx.queryParam("visibility");
                 int page = Integer.parseInt(Objects.requireNonNullElse(ctx.queryParam("page"), "1"));
+                int size = Integer.parseInt(Objects.requireNonNullElse(ctx.queryParam("size"), "10"));
                 ctx.json(postDAO.getPostsByVisibility(visibility, user,page, size));
 
             } catch (Exception e) {
