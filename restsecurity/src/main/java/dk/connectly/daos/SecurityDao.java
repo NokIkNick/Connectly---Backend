@@ -43,8 +43,6 @@ public class SecurityDao extends DAO<User, String> {
 
     public User getVerifiedUser(String username, String password) throws ValidationException {
         try(var em = emf.createEntityManager()){
-            List<User> users = em.createQuery("select u from users u", User.class).getResultList();
-            users.stream().forEach(user -> System.out.println(user.getEmail()+" "+user.getPassword()));
             User user = em.find(User.class, username);
             if(user == null){
                 throw new EntityNotFoundException("No user found with username: "+username);

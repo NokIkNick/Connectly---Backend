@@ -1,35 +1,19 @@
 status: 500
-message: org.hibernate.query.sqm.UnknownEntityException: Could not resolve root entity 'users'
-timestamp: 2024-11-21T10:26:58.512016600
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Error while getting postsError while getting posts for user: password with visibility: FRIEND. Details: Argument [FRIEND] of type [java.lang.String] did not match parameter type [dk.connectly.utils.ConnectionType (n/a)], 500, 500
-timestamp: 2024-11-21T10:39:57.208967200
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Error while getting postsError while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [java.lang.String] did not match parameter type [dk.connectly.utils.ConnectionType (n/a)], 500, 500
-timestamp: 2024-11-21T10:41:53.644655900
+message: Unrecognized field "username" (class dk.connectly.dtos.UserDTO), not marked as ignorable (3 known properties: "password", "email", "roles"])
+ at [Source: (String)"{
+"username":"admin@example.com",
+"password":"adminpass"
+}"; line: 2, column: 13] (through reference chain: dk.connectly.dtos.UserDTO["username"])
+timestamp: 2024-11-21T13:44:16.487685500
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
 status: 500
 message: org.hibernate.query.sqm.UnknownEntityException: Could not resolve root entity 'users'
-timestamp: 2024-11-21T11:03:08.024420700
+timestamp: 2024-11-21T13:44:25.408788500
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
 status: 500
-message: dk.connectly.exceptions.ApiException: Unauthorized with roles: [ADMIN, USER], 403
-timestamp: 2024-11-21T12:35:53.504008100
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: dk.connectly.exceptions.ApiException: Unauthorized with roles: [USER], 403
-timestamp: 2024-11-21T12:36:51.871715200
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: dk.connectly.exceptions.ApiException: Unauthorized with roles: [USER], 403
-timestamp: 2024-11-21T12:39:12.213174800
+message: inStream parameter is null
+timestamp: 2024-11-21T13:54:50.310793100
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
