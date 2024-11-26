@@ -20,7 +20,9 @@ public class Main {
                 .configureCors();
 
         Populator populator = new Populator(HibernateConfig.getEntityManagerFactoryConfig());
-        
+
+        //MongoDBConfig.dropDatabase();
+
         //populator.populate();
 
     }

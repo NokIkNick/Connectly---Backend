@@ -12,28 +12,29 @@ import java.util.Objects;
 
 public class MongoDBConfig {
     static String URI = "mongodb://159.223.24.167:27017/";
+    static String DB_NAME = "ConnectlyDB";
     private static ObjectMapper objectMapper = new ObjectMapper();
 
-    public static void establishTestConnection(){
-        try(MongoClient mongoClient = MongoClients.create(URI)){
+    public static void establishTestConnection() {
+        try (MongoClient mongoClient = MongoClients.create(URI)) {
 
             MongoDatabase database = mongoClient.getDatabase("Test");
-            System.out.println("Connected to "+ database.getName());
+            System.out.println("Connected to " + database.getName());
 
             database.getCollection("testCollection").insertOne(new Document("name", "testDocument").append("type", "example"));
             System.out.println("Document has been created");
 
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void getTestFile(){
-        try(MongoClient mongoClient = MongoClients.create(URI)){
+    public static void getTestFile() {
+        try (MongoClient mongoClient = MongoClients.create(URI)) {
 
             MongoDatabase database = mongoClient.getDatabase("Test");
-            System.out.println("Connected to "+ database.getName());
+            System.out.println("Connected to " + database.getName());
 
             MongoCollection<Document> documentCollection = database.getCollection("testCollection");
             Document toBeFound = new Document("name", "testDocument");
@@ -42,46 +43,34 @@ public class MongoDBConfig {
             System.out.println(found.toJson());
 
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 
-    public static Object getChatLogByUsers(String userEmail1, String userEmail2, int chatId){
+    public static Object getChatLogByUsers(String userEmail1, String userEmail2, int chatId) {
         return null;
     }
 
-    public static Object updateChatLogByUsers(String userEmail1, String userEmail2, int chatId){
+    public static Object updateChatLogByUsers(String userEmail1, String userEmail2, int chatId) {
         return null;
     }
 
-    public static Object createChatLogByUsers(String userEmail1, String userEmail2){
-        try(MongoClient mongoClient = MongoClients.create(URI)){
-            MongoDatabase database = mongoClient.getDatabase("ConnectlyDB");
-
-            MongoCollection<Document> documentCollection = database.getCollection("ChatService");
-            Document toBeFound = documentCollection.find(new Document("firstEmail", userEmail1).append("secondEmail", userEmail2)).first();
-
-            if(toBeFound != null){
-                return toBeFound.toJson();
-            }
-
-
-            Document document = new Document("_id", documentCollection.countDocuments()+1).append("firstEmail", userEmail1).append("secondEmail", userEmail2).append("date of creation", new Date());
-            documentCollection.insertOne(document);
-            return document.toJson();
+    public static Object createChat(String userEmail1, String userEmail2) {
+        try (MongoClient mongoClient = MongoClients.create(DB_NAME)) {
+            
         }
     }
 
-    public static Object createChatMessage(String authorEmail, String message, int id){
-        try(MongoClient mongoClient = MongoClients.create(URI)){
+    public static Object createChatMessage(String authorEmail, String message, int id) {
+        try (MongoClient mongoClient = MongoClients.create(URI)) {
             MongoDatabase database = mongoClient.getDatabase("ConnectlyDB");
 
             MongoCollection<Document> documentCollection = database.getCollection("ChatService");
             Document toBeFound = documentCollection.find(new Document("_id", id)).first();
 
-            if(toBeFound == null){
+            if (toBeFound == null) {
                 return objectMapper.createObjectNode().put("Error", "Couldn't find chat log");
             }
 
@@ -94,14 +83,21 @@ public class MongoDBConfig {
         }
     }
 
-    public static void printDatabase(){
-        try(MongoClient mongoClient = MongoClients.create(URI)){
+    public static void printDatabase() {
+        try (MongoClient mongoClient = MongoClients.create(URI)) {
             MongoDatabase database = mongoClient.getDatabase("ConnectlyDB");
 
             MongoCollection<Document> documentCollection = database.getCollection("ChatService");
-            for(Document d : documentCollection.find()){
+            for (Document d : documentCollection.find()) {
                 System.out.println(d.toJson());
             }
+        }
+    }
+
+    public static void dropDatabase() {
+        try (MongoClient mongoClient = MongoClients.create(URI)) {
+            MongoDatabase database = mongoClient.getDatabase("ConnectlyDB");
+            database.drop();
         }
     }
 }
