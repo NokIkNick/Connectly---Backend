@@ -1,13 +1,11 @@
 package dk.connectly.daos;
 
 import dk.connectly.dtos.ConnectionDTO;
-//import dk.connectly.dtos.ConnectionDTO;
 import dk.connectly.dtos.ConnectionRequestDTO;
 import dk.connectly.exceptions.ApiException;
 import dk.connectly.model.Connection;
 import dk.connectly.model.ConnectionRequest;
 import dk.connectly.model.User;
-import dk.connectly.model.Connection;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 

@@ -2,11 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\main",
     "\\src\\main\\java",
     "\\src\\main\\java\\dk",
-    "\\src\\main\\java\\dk\\connectly"
+    "\\src\\main\\java\\dk\\connectly",
+    "\\src\\main\\java\\dk\\connectly\\daos"
   ],
-  "SelectedNode": "\\src\\main\\java\\dk\\connectly\\dev.http",
+  "SelectedNode": "\\src\\test",
   "PreviewInSolutionExplorer": false
 }

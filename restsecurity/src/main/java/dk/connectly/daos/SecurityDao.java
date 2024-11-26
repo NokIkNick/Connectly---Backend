@@ -24,8 +24,6 @@ public class SecurityDao extends DAO<User, String> {
 
     public User createUser(String username, String password){
         User user = new User(password, username);
-        //user.setEmail(username);
-        //user.setPassword(password); // bypasses the salting & doesn't use the constructor
         try(var em = emf.createEntityManager()){
             Role role = em.find(Role.class, "USER");
             if(role == null){
