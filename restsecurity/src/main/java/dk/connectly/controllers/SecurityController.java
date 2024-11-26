@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.nimbusds.jose.JOSEException;
 import dk.connectly.daos.SecurityDao;
+import dk.connectly.dtos.LoginDTO;
 import dk.connectly.dtos.TokenDTO;
 import dk.connectly.dtos.UserDTO;
 import dk.connectly.exceptions.ApiException;
@@ -37,9 +38,8 @@ public class SecurityController {
         return (ctx) -> {
             ObjectNode returnObject = objectMapper.createObjectNode();
             try{
-                UserDTO userInput = ctx.bodyAsClass(UserDTO.class);
+                LoginDTO userInput = ctx.bodyAsClass(LoginDTO.class);
                 User created = securityDao.createUser(userInput.getEmail(), userInput.getPassword());
-
 
                 String token = tokenUtils.createToken(new UserDTO(created));
                 ctx.status(HttpStatus.CREATED).json(new TokenDTO(token, userInput.getEmail()));
@@ -54,12 +54,11 @@ public class SecurityController {
         return (ctx) -> {
             ObjectNode returnObject = objectMapper.createObjectNode();
             try{
-                UserDTO user = ctx.bodyAsClass(UserDTO.class);
-                System.out.println("USER IN LOGIN: "+ user);
+                LoginDTO user = ctx.bodyAsClass(LoginDTO.class);
 
                 User verifiedUserEntity = securityDao.getVerifiedUser(user.getEmail(), user.getPassword());
                 String token = tokenUtils.createToken(new UserDTO(verifiedUserEntity));
-                ctx.status(200).json(new TokenDTO(token, user.getEmail()));
+                ctx.status(200).json(new TokenDTO(token, user.getEmail())); 
 
             }catch(EntityNotFoundException | ValidationException | ApiException e){
                 ctx.status(401);
