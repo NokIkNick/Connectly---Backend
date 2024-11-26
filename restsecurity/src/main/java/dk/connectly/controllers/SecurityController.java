@@ -10,6 +10,7 @@ import dk.connectly.dtos.UserDTO;
 import dk.connectly.exceptions.ApiException;
 import dk.connectly.exceptions.NotAuthorizedException;
 import dk.connectly.exceptions.ValidationException;
+import dk.connectly.utils.Utils;
 import io.javalin.http.Handler;
 import io.javalin.http.HttpStatus;
 import jakarta.persistence.EntityExistsException;
@@ -104,8 +105,9 @@ public class SecurityController {
 
     public UserDTO verifyToken(String token) throws ApiException {
         boolean IS_DEPLOYED = (System.getenv("DEPLOYED") != null);
-        //String SECRET = IS_DEPLOYED ? System.getenv("SECRET_KEY") : Utils.getPropertyValue("SECRET_KEY", "config.properties");
-        String SECRET = "ghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgr";
+        //String LOCALSECRET = "ghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgrfeghjyhtgr";
+        String SECRET = IS_DEPLOYED ? System.getenv("SECRET_KEY") : Utils.getPropertyValue("SECRET_KEY", "config.properties");
+
         try {
             if(tokenUtils.tokenIsValid(token, SECRET) && tokenUtils.tokenNotExpired(token)){
                 return tokenUtils.getUserWithRolesFromToken(token);

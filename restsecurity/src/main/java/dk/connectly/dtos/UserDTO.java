@@ -35,10 +35,4 @@ public class UserDTO {
         return getEmail();
     }
 
-    @Override
-    public String toString(){
-        return this.email;
-    }
-
-
 }
