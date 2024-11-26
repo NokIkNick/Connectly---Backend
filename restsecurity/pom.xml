@@ -185,6 +185,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- MONGODB -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
