@@ -3,8 +3,7 @@ package dk.connectly;
 import dk.connectly.config.ApplicationConfig;
 import dk.connectly.config.HibernateConfig;
 import dk.connectly.config.Routes;
-import dk.connectly.controllers.ChatController;
-import dk.connectly.controllers.ChatServiceDAO;
+import dk.connectly.daos.ChatServiceDAO;
 import dk.connectly.utils.Populator;
 
 public class Main {

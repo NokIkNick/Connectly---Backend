@@ -1,4 +1,4 @@
-package dk.connectly.controllers;
+package dk.connectly.daos;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.MongoClient;

@@ -1,5 +1,6 @@
 package dk.connectly.controllers;
 
+import dk.connectly.daos.ChatServiceDAO;
 import dk.connectly.dtos.ChatDTO;
 import dk.connectly.dtos.MessageDTO;
 import dk.connectly.exceptions.ApiException;
