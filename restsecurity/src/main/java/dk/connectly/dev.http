@@ -29,3 +29,59 @@ POST http://localhost:7070/api/create
 {
 "name":"test"
 }
+
+###
+
+POST http://localhost:7070/api/chat/createChat
+Content-Type: application/json
+
+{
+"participants": [
+  "testgutmail@coolmail.dk",
+  "testdamemail4@cooleremail.dk"
+]
+
+}
+
+###
+
+GET http://localhost:7070/api/chat/getChatByParticipants
+Content-Type: application/json
+
+{
+  "participants": [
+    "testgutmail@coolmail.dk",
+    "testdamemail@cooleremail.dk"
+  ]
+
+}
+###
+
+GET http://localhost:7070/api/chat/getChatById/1
+Content-Type: application/json
+
+###
+
+POST http://localhost:7070/api/chat/sendMessage
+Content-Type: application/json
+
+{
+
+  "chat_id": 1,
+  "messenger": "testgutmail@coolmail.dk",
+  "message": "Hi how are you doing :)"
+
+}
+
+###
+
+GET http://localhost:7070/api/chat/getMessagesByChatId/1
+Content-Type: application/json
+
+###
+
+GET http://localhost:7070/api/chat/getChatsByUser/testgutmail@coolmail.dk
+Content-Type: application/json
+
+###
+
