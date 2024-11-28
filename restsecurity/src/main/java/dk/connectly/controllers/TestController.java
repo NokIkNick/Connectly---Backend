@@ -1,17 +1,19 @@
 package dk.connectly.controllers;
 
-import dk.connectly.daos.TestMemoryDao;
+//import dk.connectly.daos.TestMemoryDao;
 import dk.connectly.dtos.TestDTO;
 import io.javalin.http.Handler;
+import dk.connectly.daos.TestDAO;
 
 public class TestController {
 
     private static TestController instance;
 
-    private static TestMemoryDao testDao = TestMemoryDao.getInstance();
+    private static TestDAO testDao;
 
-    public static TestController getInstance() {
+    public static TestController getInstance(boolean isTesting) {
         if (instance == null) {
+            testDao = TestDAO.getInstance(isTesting );
             instance = new TestController();
         }
         return instance;

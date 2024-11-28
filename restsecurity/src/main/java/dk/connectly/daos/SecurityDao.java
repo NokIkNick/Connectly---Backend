@@ -23,9 +23,7 @@ public class SecurityDao extends DAO<User, String> {
     }
 
     public User createUser(String username, String password){
-        User user = new User();
-        user.setEmail(username);
-        user.setPassword(password);
+        User user = new User(password, username);
         try(var em = emf.createEntityManager()){
             Role role = em.find(Role.class, "USER");
             if(role == null){
@@ -33,9 +31,7 @@ public class SecurityDao extends DAO<User, String> {
                 em.persist(role);
             }
             user.addRole(role);
-            em.getTransaction().begin();
-            em.persist(user);
-            em.getTransaction().commit();
+            create(user);
         }
         return user;
     }

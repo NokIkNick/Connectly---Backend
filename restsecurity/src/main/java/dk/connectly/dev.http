@@ -2,8 +2,8 @@ POST http://localhost:7070/api/auth/register
 
 {
 
-"email":"Coolgutmand",
-"password":"coolkode21"
+"email":"admin@example.com",
+"password":"adminpass"
 
 }
 ###
@@ -18,7 +18,7 @@ POST http://localhost:7070/api/auth/login
 ###
 
 GET http://localhost:7070/api/protected/user_demo
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQiLCJleHAiOjE3MzIxOTU0NjMsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQifQ.PP7PfeDfeL7DjObj48fQrF5-qFDkABxKh7szuvCbzxE
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQiLCJleHAiOjE3MzE2Mzg2NjAsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQifQ.X5UtPxMixYYzCUgBi09NEy4plwnIGPRTdFEz0LFW4Cs
 ###
 
 GET http://localhost:7070/api/getAll
@@ -30,10 +30,47 @@ POST http://localhost:7070/api/create
 "name":"test"
 }
 
+### Create New Connection Request
 
+POST http://localhost:7070/api/connection/request/new
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQiLCJleHAiOjE3MzIwMjQ5MjYsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQifQ.Oep8zCD73riVO7RZbBonPHaitsEdTlhswaQF1icRBjo
+{
+  "connection":{
+    "email":"Coolgutmand2",
+    "firstName":"auto",
+    "lastName":"terry"
+  },
+  "connectionTypes":[
+    
+  ]
+}
+
+### Confirm Connection Request
+
+PUT http://localhost:7070/api/connection/request/confirm
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQyIiwiZXhwIjoxNzMyMDI3NjUzLCJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6IkNvb2xndXRtYW5kMiJ9.IWo6dxx4sdK5u3AYlb6b69_zu2wwuktb_XEWP6fEXHE
+{
+  "id":7,
+  "receiver":{
+    "email":"Coolgutmand2",
+    "firstName":"auto",
+    "lastName":"terry"
+  },
+  "requester":{
+    "email":"Coolgutmand",
+    "firstName":"auto",
+    "lastName":"terry"
+  },
+  "types":[
+    1
+  ]
+}
+
+### test connection look
+GET http://localhost:7070/api/connection/test
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQyIiwiZXhwIjoxNzMyMDI5NTE2LCJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6IkNvb2xndXRtYW5kMiJ9.AWBnkME4Rvl3GO4n6dHze1-Saqxk5urxk8ybiO57924
 
 ###
-
 POST http://localhost:7070/api/security/auth/login
 
 {
@@ -63,5 +100,3 @@ POST http://localhost:7070/api/protected/post/create
 "content":"test",
 "visibility":"FRIEND"
 }
-
-

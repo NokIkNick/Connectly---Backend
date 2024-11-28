@@ -10,6 +10,7 @@ import jakarta.persistence.Persistence;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 public class Populator {
 
@@ -83,13 +84,13 @@ public class Populator {
             Connection connection1 = new Connection();
             connection1.setFirstUser(user1);
             connection1.setSecondUser(user2);
-            connection1.setConnectionType(ConnectionType.FRIEND);
+            connection1.setConnectionType(Set.of(ConnectionType.FRIEND));
             em.persist(connection1);
 
             Connection connection2 = new Connection();
             connection2.setFirstUser(admin);
             connection2.setSecondUser(user1);
-            connection2.setConnectionType(ConnectionType.WORK);
+            connection2.setConnectionType(Set.of(ConnectionType.WORK));
             em.persist(connection2);
 
             // Create Connection Requests

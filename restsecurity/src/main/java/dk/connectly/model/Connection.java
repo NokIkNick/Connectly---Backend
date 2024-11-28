@@ -1,6 +1,12 @@
 package dk.connectly.model;
 
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import dk.connectly.utils.ConnectionType;
+import dk.connectly.utils.ConnectionTypeSetConverter;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,6 +15,7 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name ="connection")
 @ToString
 public class Connection {
 
@@ -22,7 +29,6 @@ public class Connection {
     @ManyToOne
     private User secondUser;
 
-    @Enumerated(EnumType.STRING)
-    private ConnectionType connectionType;
-
+    @Convert(converter = ConnectionTypeSetConverter.class)
+    private Set<ConnectionType> connectionType;
 }
