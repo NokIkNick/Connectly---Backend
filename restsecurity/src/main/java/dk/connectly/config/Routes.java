@@ -32,12 +32,13 @@ public class Routes {
                 get("/admin_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.ADMIN);
             });
             path("/chat", () -> {
-                post("/createChat", cc.createChat(), roles.ANYONE);
-                get("/getChatByParticipants", cc.fetchChat(), roles.ANYONE);
-                get("/getChatById/{id}", cc.fetchChatById(), roles.ANYONE);
-                post("/sendMessage", cc.sendMessage(), roles.ANYONE);
-                get("/getMessagesByChatId/{id}", cc.getMessagesByChatId(), roles.ANYONE);
-                get("/getChatsByUser/{email}", cc.getChatsByUser(), roles.ANYONE);
+                before(sc.authenticate());
+                post("/createChat", cc.createChat(), roles.USER);
+                get("/getChatByParticipants", cc.fetchChat(), roles.USER);
+                get("/getChatById/{id}", cc.fetchChatById(), roles.USER);
+                post("/sendMessage", cc.sendMessage(), roles.USER);
+                get("/getMessagesByChatId/{id}", cc.getMessagesByChatId(), roles.USER);
+                get("/getChatsByUser/{email}", cc.getChatsByUser(), roles.USER);
             });
         };
     }
