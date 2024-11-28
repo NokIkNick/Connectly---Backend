@@ -34,13 +34,34 @@ POST http://localhost:7070/api/create
 
 ###
 
-POST http://localhost:7070/api/auth/login
+POST http://localhost:7070/api/security/auth/login
 
 {
-"username":"user1@example.com",
+"email":"user1@example.com",
 "password":"password1"
 }
 ###
 GET  http://localhost:7070/api/protected/post/posts?visibility=FRIEND&page=1&size=10
+
+{
+"email":"user1@example.com"
+}
+
 ###
-GET  http://localhost:7070/api/post/posts?visibility=FRIEND
+GET  http://localhost:7070/api/protected/post/posts?visibility=FRIEND
+
+{
+"email":"user1@example.com"
+}
+
+###
+POST http://localhost:7070/api/protected/post/create
+
+{
+"author":"user1@example.com",
+"title":"test",
+"content":"test",
+"visibility":"FRIEND"
+}
+
+

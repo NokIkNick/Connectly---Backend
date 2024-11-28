@@ -17,3 +17,101 @@ message: inStream parameter is null
 timestamp: 2024-11-21T13:54:50.310793100
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: Unrecognized field "username" (class dk.connectly.dtos.UserDTO), not marked as ignorable (3 known properties: "password", "email", "roles"])
+ at [Source: (String)"{
+"username":"user1@example.com",
+"password":"password1"
+}"; line: 2, column: 13] (through reference chain: dk.connectly.dtos.UserDTO["username"])
+timestamp: 2024-11-22T10:30:00.022765500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Unrecognized field "username" (class dk.connectly.dtos.UserDTO), not marked as ignorable (3 known properties: "password", "email", "roles"])
+ at [Source: (String)"{
+"username":"user1@example.com",
+"password":"password1"
+}"; line: 2, column: 13] (through reference chain: dk.connectly.dtos.UserDTO["username"])
+timestamp: 2024-11-22T10:48:16.485966400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Unrecognized field "username" (class dk.connectly.dtos.UserDTO), not marked as ignorable (3 known properties: "password", "email", "roles"])
+ at [Source: (String)"{
+"username":"user1@example.com",
+"password":"password1"
+}"; line: 2, column: 13] (through reference chain: dk.connectly.dtos.UserDTO["username"])
+timestamp: 2024-11-26T09:10:30.793943700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postUnexpected character ('"' (code 34)): was expecting comma to separate Object entries
+ at [Source: (String)"{
+"title":"test",
+"content":"test"
+"visibility":"FRIEND"
+}"; line: 4, column: 2], 500
+timestamp: 2024-11-26T09:26:05.286564100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Unrecognized field "username" (class dk.connectly.dtos.UserDTO), not marked as ignorable (3 known properties: "password", "email", "roles"])
+ at [Source: (String)"{
+"username":"user1@example.com",
+"password":"password1"
+}"; line: 2, column: 13] (through reference chain: dk.connectly.dtos.UserDTO["username"])
+timestamp: 2024-11-26T09:30:06.659854200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCannot construct instance of `dk.connectly.model.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('user1@example.com')
+ at [Source: (String)"{
+"author":"user1@example.com",
+"title":"test",
+"content":"test",
+"visibility":"FRIEND"
+}"; line: 2, column: 10] (through reference chain: dk.connectly.dtos.PostDTO["author"]), 500
+timestamp: 2024-11-26T09:41:45.059708600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCannot construct instance of `dk.connectly.model.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('user1@example.com')
+ at [Source: (String)"{
+"author":"user1@example.com",
+"title":"test",
+"content":"test",
+"visibility":"FRIEND"
+}"; line: 2, column: 10] (through reference chain: dk.connectly.dtos.PostDTO["author"]), 500
+timestamp: 2024-11-26T10:07:33.998161900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCannot construct instance of `dk.connectly.model.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('user1@example.com')
+ at [Source: (String)"{
+"author":"user1@example.com",
+"title":"test",
+"content":"test",
+"visibility":"FRIEND"
+}"; line: 2, column: 10] (through reference chain: dk.connectly.dtos.PostDTO["author"]), 500
+timestamp: 2024-11-26T10:17:43.263204800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCannot construct instance of `dk.connectly.model.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('user1@example.com')
+ at [Source: (String)"{
+"author":"user1@example.com",
+"title":"test",
+"content":"test",
+"visibility":"FRIEND"
+}"; line: 2, column: 10] (through reference chain: dk.connectly.dtos.PostDTO["author"]), 500
+timestamp: 2024-11-26T10:20:45.401435
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting postsUnexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (String)"{
+"email":"user1@example.com",
+}"; line: 3, column: 2], 500
+timestamp: 2024-11-26T10:47:15.846718200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------

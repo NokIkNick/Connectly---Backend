@@ -1,7 +1,9 @@
 package dk.connectly.controllers;
 
 import dk.connectly.daos.PostDAO;
+import dk.connectly.daos.SecurityDao;
 import dk.connectly.dtos.PostDTO;
+import dk.connectly.dtos.UserDTO;
 import dk.connectly.exceptions.ApiException;
 import dk.connectly.model.Post;
 
@@ -14,6 +16,7 @@ import java.util.Objects;
 public class PostController {
     private static PostController instance;
     private static PostDAO postDAO;
+    private static SecurityDao securityDao;
 
 
     private PostController() {
@@ -24,6 +27,7 @@ public class PostController {
         if (instance == null) {
             instance = new PostController();
             postDAO = PostDAO.getInstance();
+            securityDao = SecurityDao.getInstance(false);
         }
         return instance;
     }
@@ -34,8 +38,9 @@ public class PostController {
         return (ctx) -> {
             try {
                 PostDTO postDTO = ctx.bodyAsClass(PostDTO.class);
-                User postAuthor = ctx.sessionAttribute("user");
-                Post newPost = new Post(postDTO, postAuthor);
+                User author = securityDao.getById(postDTO.getAuthor());
+
+                Post newPost = new Post(postDTO, author);
                 postDAO.create(newPost);
                 ctx.status(201);
             } catch (Exception e) {
@@ -50,8 +55,9 @@ public class PostController {
         return (ctx) -> {
             try {
 
-                User user = new User("password1","user1@example.com");
-                //User user = ctx.sessionAttribute("user");
+                UserDTO userDTO = new UserDTO();
+                userDTO.setEmail(ctx.bodyAsClass(UserDTO.class).getEmail());
+                User user = securityDao.getById(userDTO.getEmail());
                 String visibility = ctx.queryParam("visibility");
                 int page = Integer.parseInt(Objects.requireNonNullElse(ctx.queryParam("page"), "1"));
                 int size = Integer.parseInt(Objects.requireNonNullElse(ctx.queryParam("size"), "10"));
