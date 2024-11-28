@@ -63,3 +63,23 @@ message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify to
 timestamp: 2024-11-28T15:56:32.202014700
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: Cannot invoke "java.util.Set.stream()" because the return value of "dk.connectly.dtos.UserDTO.getRoles()" is null
+timestamp: 2024-11-28T21:35:24.124911
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T21:35:24.603215400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Cannot invoke "java.util.Set.stream()" because the return value of "dk.connectly.dtos.UserDTO.getRoles()" is null
+timestamp: 2024-11-28T21:39:49.379505200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T21:39:49.784095900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------

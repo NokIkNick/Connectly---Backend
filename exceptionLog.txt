@@ -102,3 +102,8 @@ message: Invalid salt version
 timestamp: 2024-11-28T12:04:17.954239500
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T22:31:05.961962600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------

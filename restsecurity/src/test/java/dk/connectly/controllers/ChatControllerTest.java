@@ -4,12 +4,14 @@ import dk.connectly.config.ApplicationConfig;
 import dk.connectly.config.HibernateConfig;
 import dk.connectly.config.Routes;
 import dk.connectly.daos.ChatServiceDAO;
+import dk.connectly.exceptions.ApiException;
 import dk.connectly.model.Role;
 import dk.connectly.model.User;
 import io.javalin.http.HttpStatus;
 import io.restassured.RestAssured;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import org.bson.Document;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +31,6 @@ class ChatControllerTest {
     @BeforeAll
     static void setUpAll(){
         emf = HibernateConfig.getEntityManagerFactoryConfigForTesting();
-        //emf = HibernateConfig.getEntityManagerFactoryConfig();
 
         RestAssured.baseURI = "http://localhost:7070/api";
         ApplicationConfig applicationConfig = ApplicationConfig.getInstance();
@@ -39,13 +40,14 @@ class ChatControllerTest {
                 .setRoutes(Routes.getRoutes(true))
                 .checkSecurityRoles(true);
 
-        USER = new Role("STUDENT");
+        USER = new Role("USER");
 
         userUser = new User("userPassword", "user@email.dk");
 
         try(EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
             em.persist(USER);
+            userUser.addRole(USER);
             em.persist(userUser);
             em.getTransaction().commit();
         }
@@ -115,11 +117,42 @@ class ChatControllerTest {
     }
 
     @Test
-    void fetchChat() {
+    void fetchChat() throws ApiException {
+        String userEmail1 = "testgutmail@coolmail.dk";
+        String userEmail2 = "testdamemail4@cooleremail.dk";
+
+        ChatServiceDAO serviceDAO = ChatServiceDAO.getInstance(true);
+        Document created = serviceDAO.createChat(userEmail1,userEmail2);
+        System.out.println(created.toJson());
+        //serviceDAO.displayDatabaseName();
+
+
+        String json  = "{\n" +
+                "  \"participants\": [\n" +
+                "    \"testgutmail@coolmail.dk\",\n" +
+                "    \"testdamemail4@cooleremail.dk\"\n" +
+                "  ]\n" +
+                "\n" +
+                "}";
+
+        RestAssured.given()
+                .header("Authorization", userToken)
+                .contentType("application/json")
+                .body(json)
+                .when()
+                .post("http://localhost:7070/api/chat/getChatByParticipants")
+                .then().log().all()
+                .statusCode(200)
+                .body("_id", notNullValue())
+                .body("_id", equalTo(created.get("id_")))
+                .body("participants", notNullValue())
+                .body("participants[0]", equalTo(userEmail1))
+                .body("participants[1]", equalTo(userEmail2));
     }
 
     @Test
     void fetchChatById() {
+
     }
 
     @Test

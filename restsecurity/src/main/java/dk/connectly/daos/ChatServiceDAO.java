@@ -84,6 +84,7 @@ public class ChatServiceDAO {
             MongoDatabase database = mongoClient.getDatabase(DB_NAME);
             MongoCollection<Document> chats = database.getCollection("Chats");
 
+
             Document foundChat = chats.find(new Document("participants", new Document("$all", List.of(userEmail1, userEmail2)))).first();
 
             if(foundChat == null){
@@ -197,5 +198,9 @@ public class ChatServiceDAO {
             MongoDatabase database = mongoClient.getDatabase(DB_NAME);
             database.drop();
         }
+    }
+
+    public void displayDatabaseName(){
+        System.out.println(DB_NAME);
     }
 }
