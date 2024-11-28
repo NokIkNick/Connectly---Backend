@@ -9,6 +9,7 @@ import dk.connectly.model.Post;
 
 import dk.connectly.model.Role;
 import dk.connectly.model.User;
+import dk.connectly.utils.TokenUtils;
 import io.javalin.http.Handler;
 
 import java.util.Objects;
@@ -17,17 +18,17 @@ public class PostController {
     private static PostController instance;
     private static PostDAO postDAO;
     private static SecurityDao securityDao;
-
+    private static TokenUtils tokenUtils = new TokenUtils();
 
     private PostController() {
 
     }
 
-    public static PostController getInstance() {
+    public static PostController getInstance(boolean isTesting) {
         if (instance == null) {
             instance = new PostController();
-            postDAO = PostDAO.getInstance();
-            securityDao = SecurityDao.getInstance(false);
+            postDAO = PostDAO.getInstance(isTesting);
+            securityDao = SecurityDao.getInstance(isTesting);
         }
         return instance;
     }
@@ -54,8 +55,7 @@ public class PostController {
     public Handler getPostsByVisibility () {
         return (ctx) -> {
             try {
-
-                UserDTO userDTO = new UserDTO();
+                UserDTO userDTO = tokenUtils.getUserWithRolesFromToken(ctx.header("Authorization").split(" ")[1]);
                 userDTO.setEmail(ctx.bodyAsClass(UserDTO.class).getEmail());
                 User user = securityDao.getById(userDTO.getEmail());
                 String visibility = ctx.queryParam("visibility");
@@ -65,7 +65,7 @@ public class PostController {
 
             } catch (Exception e) {
                 ctx.status(500);
-                throw new ApiException(500 ,"Error while getting posts" + e.getMessage());
+                throw new ApiException(500 ,"Error while getting posts " + e.getMessage());
             }
         };
     }

@@ -5,48 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e140786-c7a7-41ff-b576-960fd2302bb2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/restsecurity/v17/.wsuo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/restsecurity/v17/DocumentLayout.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/slnx.sqlite" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/controllers/ConnectionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/controllers/ConnectionRequestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/daos/ConnectionDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/daos/ConnectionRequestDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/daos/TestDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/dtos/ConnectionDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/dtos/ConnectionRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/dtos/LoginDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/dtos/NewConnectionDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/utils/ConnectionTypeSetConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/utils/EnumSetConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/utils/OrdinalEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/utils/testEnemSetConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/dk/connectly/dao/ConnectionRequestTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/dk/connectly/dao/ConnectionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/resources/features/RequestConnection.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/resources/stepdefinitions/RequestConnectionDef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/resources/testRunner/CucumberTestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/config/HibernateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/config/HibernateConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/config/Routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/config/Routes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/controllers/SecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/controllers/SecurityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/controllers/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/daos/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/daos/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/daos/IDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/daos/IDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/daos/SecurityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/daos/SecurityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/dev.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/dev.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/dtos/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/dtos/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/exceptions/ApiException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/exceptions/ApiException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/model/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/model/Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/model/ConnectionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/model/ConnectionRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/utils/ConnectionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/utils/ConnectionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/connectly/utils/Populator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/connectly/utils/Populator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Merging Post",
+    "git-widget-placeholder": "Post",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Nicklas/Desktop/GitHub/Backend-Template/restsecurity",
@@ -170,7 +130,7 @@
       <workItem from="1712672416416" duration="42000" />
       <workItem from="1712826528985" duration="14842000" />
       <workItem from="1717276128089" duration="913000" />
-      <workItem from="1732782773961" duration="347000" />
+      <workItem from="1732782773961" duration="589000" />
     </task>
     <servers />
   </component>

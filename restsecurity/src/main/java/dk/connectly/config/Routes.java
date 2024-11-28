@@ -28,6 +28,7 @@ public class Routes {
         tc = TestController.getInstance(isTesting);
         crc = ConnectionRequestController.getInstance(isTesting);
         cc = ConnectionController.getInstance(isTesting);
+        pc = PostController.getInstance(isTesting);
         return () -> {
             before(sc.authenticate());
             path("/", () -> {
@@ -56,6 +57,7 @@ public class Routes {
                 post("/create", pc.createPost(), roles.ANYONE);
                 get("/posts", pc.getPostsByVisibility(), roles.ANYONE);
             });
+
         };
     }
 

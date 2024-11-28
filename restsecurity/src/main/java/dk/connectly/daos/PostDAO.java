@@ -13,13 +13,13 @@ public class PostDAO extends DAO<Post,Integer> {
 
     private static PostDAO instance;
 
-        public PostDAO() {
+        PostDAO(boolean isTesting) {
             super(Post.class, false);
         }
 
-        public static PostDAO getInstance() {
+        public static PostDAO getInstance(boolean isTesting) {
             if(instance == null){
-                instance = new PostDAO();
+                instance = new PostDAO(isTesting);
             }
             return instance;
         }

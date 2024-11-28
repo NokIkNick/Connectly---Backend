@@ -115,3 +115,153 @@ message: Error while getting postsUnexpected character ('}' (code 125)): was exp
 timestamp: 2024-11-26T10:47:15.846718200
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: Error while getting postsCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:53:55.220455400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting postsCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:54:06.626874500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting postsCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:54:16.259225800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting postsCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:54:56.225009100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:57:04.679640200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:57:39.100145800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T10:00:12.518935600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T10:00:55.498080300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T10:02:56.261581500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T10:05:17.885056100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T10:05:25.731005700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T10:08:54.301790400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : WORK] [n/a]
+timestamp: 2024-11-28T10:14:02.851056200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:14:17.865486200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T10:40:46.754719100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T10:40:50.992666100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
+timestamp: 2024-11-28T10:40:55.427904100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
+timestamp: 2024-11-28T10:40:56.720721100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
+timestamp: 2024-11-28T10:40:59.319232700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:41:23.839319500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:41:37.530715800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : WORK] [n/a]
+timestamp: 2024-11-28T10:41:50.110852200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:42:11.248805800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:42:14.021410400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error attempting to apply AttributeConverter
+timestamp: 2024-11-28T10:45:44.225639400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:46:01.033139300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : WORK] [n/a]
+timestamp: 2024-11-28T10:46:07.112765900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T10:46:13.885838400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:46:27.668381700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:47:38.621673400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
