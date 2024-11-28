@@ -30,7 +30,6 @@ public class Routes {
         cc = ConnectionController.getInstance(isTesting);
         pc = PostController.getInstance(isTesting);
         return () -> {
-            before(sc.authenticate());
             path("/", () -> {
                 get("/", ctx -> ctx.json(objectMapper.createObjectNode().put("Message", "Connected Successfully")), roles.ANYONE);
             });
@@ -50,6 +49,7 @@ public class Routes {
                 }, roles.ANYONE);
             });
             path("/protected", () -> {
+                before(sc.authenticate());
                 get("/user_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.USER);
                 get("/admin_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.ADMIN);
             });

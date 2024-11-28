@@ -265,3 +265,124 @@ message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify to
 timestamp: 2024-11-28T10:47:38.621673400
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T11:34:32.739410800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
+timestamp: 2024-11-28T11:34:37.820963100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T11:34:50.564547600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : WORK] [n/a]
+timestamp: 2024-11-28T11:36:44.478160400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T11:37:20.805633600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T11:42:06.766635700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T11:49:09.672776200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
+timestamp: 2024-11-28T12:03:54.068582700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T12:03:58.622421
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
+timestamp: 2024-11-28T12:04:01.823449600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
+timestamp: 2024-11-28T12:05:10.504408900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Invalid input: user and visibility must be provided., 400, 500
+timestamp: 2024-11-28T12:06:28.043728100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T12:14:16.645081600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: could not execute statement [ERROR: insert or update on table "user_role" violates foreign key constraint "fkn6r4465stkbdy93a9p8cw7u24"
+  Detail: Key (role_name)=(USER) is not present in table "role".] [/* insert for dk.connectly.model.User.roles */insert into user_role (user_email,role_name) values (?,?)]
+timestamp: 2024-11-28T12:14:33.907190400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Error while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [dk.connectly.utils.ConnectionType] did not match parameter type [java.util.Set (n/a)], 500, 500
+timestamp: 2024-11-28T12:21:42.753113
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T12:22:16.392751500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Error while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [dk.connectly.utils.ConnectionType] did not match parameter type [java.util.Set (n/a)], 500, 500
+timestamp: 2024-11-28T12:22:22.400500800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Error while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [dk.connectly.utils.ConnectionType] did not match parameter type [java.util.Set (n/a)], 500, 500
+timestamp: 2024-11-28T12:24:05.859512200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Error while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [dk.connectly.utils.ConnectionType] did not match parameter type [java.util.Set (n/a)], 500, 500
+timestamp: 2024-11-28T12:24:24.831066100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Index 1 out of bounds for length 1
+timestamp: 2024-11-28T12:27:10.596069100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T12:29:37.206347300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postfailed to lazily initialize a collection of role: dk.connectly.model.User.posts: could not initialize proxy - no Session (through reference chain: dk.connectly.model.Post["author"]->dk.connectly.model.User["posts"]), 500
+timestamp: 2024-11-28T12:32:19.525285200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postfailed to lazily initialize a collection of role: dk.connectly.model.User.posts: could not initialize proxy - no Session (through reference chain: dk.connectly.model.Post["author"]->dk.connectly.model.User["posts"]), 500
+timestamp: 2024-11-28T12:32:38.081911300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Error while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [dk.connectly.utils.ConnectionType] did not match parameter type [java.util.Set (n/a)], 500, 500
+timestamp: 2024-11-28T12:36:22.289336900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------

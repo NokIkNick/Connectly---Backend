@@ -34,6 +34,7 @@ POST http://localhost:7070/api/create
 
 POST http://localhost:7070/api/connection/request/new
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQiLCJleHAiOjE3MzIwMjQ5MjYsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQifQ.Oep8zCD73riVO7RZbBonPHaitsEdTlhswaQF1icRBjo
+
 {
   "connection":{
     "email":"Coolgutmand2",
@@ -49,6 +50,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ
 
 PUT http://localhost:7070/api/connection/request/confirm
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQyIiwiZXhwIjoxNzMyMDI3NjUzLCJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6IkNvb2xndXRtYW5kMiJ9.IWo6dxx4sdK5u3AYlb6b69_zu2wwuktb_XEWP6fEXHE
+
 {
   "id":7,
   "receiver":{
@@ -71,8 +73,17 @@ GET http://localhost:7070/api/connection/test
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQyIiwiZXhwIjoxNzMyMDI5NTE2LCJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6IkNvb2xndXRtYW5kMiJ9.AWBnkME4Rvl3GO4n6dHze1-Saqxk5urxk8ybiO57924
 
 ###
-POST http://localhost:7070/api/auth/login
+POST http://localhost:7070/api/auth/register
 
+{
+
+"email":"user1@example.com",
+"password":"password1"
+
+}
+
+###
+POST http://localhost:7070/api/auth/login
 
 {
 "email":"user1@example.com",
@@ -87,7 +98,6 @@ GET  http://localhost:7070/api/post/posts?visibility=FRIEND&page=1&size=10
 
 ###
 GET  http://localhost:7070/api/post/posts?visibility=FRIEND
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQyIiwiZXhwIjoxNzMyMDI5NTE2LCJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6IkNvb2xndXRtYW5kMiJ9.AWBnkME4Rvl3GO4n6dHze1-Saqxk5urxk8ybiO57924
 
 {
 "email":"user1@example.com"

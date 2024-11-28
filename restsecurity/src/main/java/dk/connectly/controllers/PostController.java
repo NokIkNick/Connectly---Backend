@@ -9,7 +9,6 @@ import dk.connectly.model.Post;
 
 import dk.connectly.model.Role;
 import dk.connectly.model.User;
-import dk.connectly.utils.TokenUtils;
 import io.javalin.http.Handler;
 
 import java.util.Objects;
@@ -18,7 +17,7 @@ public class PostController {
     private static PostController instance;
     private static PostDAO postDAO;
     private static SecurityDao securityDao;
-    private static TokenUtils tokenUtils = new TokenUtils();
+
 
     private PostController() {
 
@@ -43,7 +42,10 @@ public class PostController {
 
                 Post newPost = new Post(postDTO, author);
                 postDAO.create(newPost);
+
+                PostDTO postDTOToBeShowed = new PostDTO(newPost);
                 ctx.status(201);
+                ctx.json(postDTOToBeShowed);
             } catch (Exception e) {
                 ctx.status(500);
                 throw new ApiException(500 ,"Error while creating post" + e.getMessage());
@@ -55,8 +57,7 @@ public class PostController {
     public Handler getPostsByVisibility () {
         return (ctx) -> {
             try {
-                UserDTO userDTO = tokenUtils.getUserWithRolesFromToken(ctx.header("Authorization").split(" ")[1]);
-                userDTO.setEmail(ctx.bodyAsClass(UserDTO.class).getEmail());
+                UserDTO userDTO  = ctx.bodyAsClass(UserDTO.class);
                 User user = securityDao.getById(userDTO.getEmail());
                 String visibility = ctx.queryParam("visibility");
                 int page = Integer.parseInt(Objects.requireNonNullElse(ctx.queryParam("page"), "1"));
