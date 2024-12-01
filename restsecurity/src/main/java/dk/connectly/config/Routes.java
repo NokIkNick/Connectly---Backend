@@ -1,11 +1,11 @@
 package dk.connectly.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import dk.connectly.controllers.ConnectionController;
 import dk.connectly.controllers.ConnectionRequestController;
 import dk.connectly.controllers.SecurityController;
 import dk.connectly.controllers.TestController;
+import dk.connectly.controllers.PostController;
 import dk.connectly.daos.ConnectionDAO;
 import dk.connectly.dtos.ConnectionDTO;
 import dk.connectly.model.Connection;
@@ -21,14 +21,15 @@ public class Routes {
     private static TestController tc;
     private static ConnectionRequestController crc;
     private static ConnectionController cc;
+    private static PostController pc;
 
     public static EndpointGroup getRoutes(boolean isTesting){
         sc = SecurityController.getInstance(isTesting);
         tc = TestController.getInstance(isTesting);
         crc = ConnectionRequestController.getInstance(isTesting);
         cc = ConnectionController.getInstance(isTesting);
+        pc = PostController.getInstance(isTesting);
         return () -> {
-            before(sc.authenticate());
             path("/", () -> {
                 get("/", ctx -> ctx.json(objectMapper.createObjectNode().put("Message", "Connected Successfully")), roles.ANYONE);
             });
@@ -48,9 +49,15 @@ public class Routes {
                 }, roles.ANYONE);
             });
             path("/protected", () -> {
+                before(sc.authenticate());
                 get("/user_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.USER);
                 get("/admin_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.ADMIN);
             });
+            path("/post", () -> {
+                post("/create", pc.createPost(), roles.ANYONE);
+                get("/posts", pc.getPostsByVisibility(), roles.ANYONE);
+            });
+
         };
     }
 

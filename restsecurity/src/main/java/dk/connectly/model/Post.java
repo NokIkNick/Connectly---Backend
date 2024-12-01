@@ -1,5 +1,6 @@
 package dk.connectly.model;
 
+import dk.connectly.dtos.PostDTO;
 import dk.connectly.utils.ConnectionType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -33,5 +34,14 @@ public class Post {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Topic> topics;
+
+    public Post(PostDTO postDTO, User author) {
+        this.author = author;
+        this.date_created = new Date();
+        this.title = postDTO.getTitle();
+        this.content = postDTO.getContent();
+        this.visibility = postDTO.getVisibility();
+    }
+
 
 }
