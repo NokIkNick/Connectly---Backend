@@ -7,10 +7,15 @@ import dk.connectly.dtos.ConnectionDTO;
 import dk.connectly.dtos.ConnectionRequestDTO;
 import dk.connectly.dtos.UserDTO;
 import dk.connectly.exceptions.ApiException;
+import dk.connectly.model.Connection;
+import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import io.javalin.http.HttpStatus;
 import jakarta.persistence.EntityExistsException;
 import dk.connectly.utils.TokenUtils;
+
+import java.text.ParseException;
+import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -33,11 +38,10 @@ public class ConnectionController {
       ObjectNode returnObject = objectMapper.createObjectNode();
       try{
         ConnectionRequestDTO CRDTO = ctx.bodyAsClass(ConnectionRequestDTO.class);
-        if(ctx.header("Authorization") == null || ctx.header("Authorization").split(" ").length !=2){
+        UserDTO userDTO = getUserFromHeader(ctx);
+        if(userDTO.getEmail() != CRDTO.getReceiver().getEmail()){
           ctx.status(HttpStatus.BAD_REQUEST);
         }
-        String token = ctx.header("Authorization").split(" ")[1];
-        UserDTO connector = tokenUtils.getUserWithRolesFromToken(token);
         ConnectionDTO DTO = connectionDAO.acceptRequest(CRDTO);
 
         ctx.status(HttpStatus.CREATED).json(DTO);
@@ -46,5 +50,33 @@ public class ConnectionController {
         ctx.json(returnObject.put("msg", e.getMessage() + " already exists"));
       }
     };
+  }
+
+  public Handler getAllIAmConnectedTo(){
+    return (ctx) -> {
+      UserDTO userDTO = getUserFromHeader(ctx);
+      getConnectionsTo(userDTO, ctx);
+    };
+  }
+
+  public Handler getAllConnectionsTo() {
+    return (ctx) -> {
+      UserDTO userDTO = ctx.bodyAsClass(UserDTO.class);
+      getConnectionsTo(userDTO, ctx);
+    };
+  }
+
+  private UserDTO getUserFromHeader(Context ctx) throws ParseException {
+    if(ctx.header("Authorization") == null || ctx.header("Authorization").split(" ").length !=2){
+      ctx.status(HttpStatus.BAD_REQUEST);
+    }
+    String token = ctx.header("Authorization").split(" ")[1];
+    UserDTO connector = tokenUtils.getUserWithRolesFromToken(token);
+    return connector;
+  }
+
+  private void getConnectionsTo(UserDTO userDTO, Context ctx){
+    List<Connection> conns = connectionDAO.getAllIAmConnectedTo(userDTO);
+    ctx.status(HttpStatus.OK).json(conns);
   }
 }

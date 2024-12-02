@@ -1,7 +1,10 @@
 package dk.connectly.daos;
 
+import java.util.List;
+
 import dk.connectly.dtos.ConnectionDTO;
 import dk.connectly.dtos.ConnectionRequestDTO;
+import dk.connectly.dtos.UserDTO;
 import dk.connectly.exceptions.ApiException;
 import dk.connectly.model.Connection;
 import dk.connectly.model.ConnectionRequest;
@@ -43,7 +46,7 @@ public class ConnectionDAO extends DAO<Connection, Integer> {
             }
 
             // Checks to make sure the Connection doesn't already exists
-            boolean connExists = em.createQuery("select c from " + Connection.class.getName() + " c where c.firstUser in (?1, ?2) and c.secondUser in (?1, ?2)", Connection.class) //  
+            boolean connExists = em.createQuery("select c from " + Connection.class.getName() + " c where c.firstUser in (?1, ?2) and c.secondUser in (?1, ?2)", Connection.class)
                     .setParameter(1, existingFirstUser)
                     .setParameter(2, existingSecondUser)
                     .getResultList().size() != 0;
@@ -77,6 +80,17 @@ public class ConnectionDAO extends DAO<Connection, Integer> {
 
             // return the Connection DTO
             return new ConnectionDTO(conn);
+        }
+    }
+
+    public List<Connection> getAllIAmConnectedTo(UserDTO userDTO) {
+        try(var em = emf.createEntityManager()){
+            User user = em.find(User.class, userDTO);
+
+            List<Connection> conns = em.createQuery("select c from " + Connection.class.getName() + " c where c.firstUser == ?1 and c.secondUser == ?1", Connection.class)
+                        .setParameter(1, user)
+                        .getResultList();
+            return conns;
         }
     }
 

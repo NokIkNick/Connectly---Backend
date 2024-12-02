@@ -1,6 +1,5 @@
 package dk.connectly.daos;
 
-import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Set;
 

@@ -39,6 +39,8 @@ public class Routes {
             path("/connection", () -> {
                 post("/request/new", crc.setupRequest(), roles.ANYONE); // To Do change back to roles.USER once authenticate can correctly identify USER
                 put("/request/confirm", cc.acceptRequest(), roles.ANYONE);
+                get("/get/connections", cc.getAllIAmConnectedTo(), roles.ANYONE);
+                get("/get/connectionsOf", cc.getAllConnectionsTo(), roles.ANYONE);
                 get("/test", (ctx) -> {
                     var cdao = ConnectionDAO.getInstance(false);
                     List<Connection> conns = cdao.getAll();
