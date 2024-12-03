@@ -1,6 +1,4 @@
 # RESTSECURITY
-Here’s a table layout for all your HTTP requests with the `TOKEN HASH` placeholder for tokens:
-
 ---
 
 # API Endpoints Documentation
