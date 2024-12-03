@@ -27,8 +27,8 @@ public class ConnectionRequestTest {
     DAO<User, Integer> userdao = new DAO<User,Integer>(User.class, true){
       
     };
-    user1 = new User("test1", "testmail1@test.dk");
-    user2 = new User("test2", "testmail2@test.dk");
+    user1 = new User("test1", "testConnectionRequestTest1@test.dk");
+    user2 = new User("test2", "testConnectionRequestTest2@test.dk");
 
     userdao.create(user1);
     userdao.create(user2);
@@ -52,7 +52,7 @@ public class ConnectionRequestTest {
   private static User user2;
 
   @Test
-  public void testAccept(){
+  public void testCreateConnection(){
       /// arrange
     /// get initial count as we need to assert on it later.
     int initialCount = crdao.getAll().size();
@@ -63,6 +63,6 @@ public class ConnectionRequestTest {
     crdao.create(cr);
 
       /// assert
-    assertEquals(initialCount + 1, crdao.getAll().size());
+    assertEquals(initialCount + 1, crdao.getAll().size(), "Connection Request not made.");
   }
 }
