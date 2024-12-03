@@ -17,4 +17,4 @@ Here’s a table layout for all your HTTP requests with the `TOKEN HASH` placeho
 | **Create Post**                   | **POST** `http://localhost:7070/api/post/create`<br><br>**Body**:<br>{<br>  "author": "user1@example.com",<br>  "title": "test",<br>  "content": "test",<br>  "visibility": "FRIEND"<br>} | { "id": 1, "author": "user1@example.com", "date_created": 1733228437708, "title": "test", "content": "test", "visibility": "FRIEND" }                                                                                                                                                                                                                                                                  |
 
 
-This format includes all endpoints and uses `TOKEN HASH` as a placeholder for the token. Let me know if you want adjustments!
+This format includes all endpoints and uses `TOKEN HASH` as a placeholder for the token.
