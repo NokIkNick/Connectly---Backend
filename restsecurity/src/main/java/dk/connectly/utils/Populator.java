@@ -93,6 +93,8 @@ public class Populator {
             connection2.setConnectionType(Set.of(ConnectionType.WORK));
             em.persist(connection2);
 
+            //TODO: FIX WHATEVER IS WRONG WITH THE "ATTRIBUTECONVERTER", "Cannot invoke 'java.util.Set.stream()' because 'attribute' is null"
+            /*
             // Create Connection Requests
             ConnectionRequest request1 = new ConnectionRequest();
             request1.setRequester(user1);
@@ -106,9 +108,10 @@ public class Populator {
 
             em.persist(request1);
             em.persist(request2);
+            */
 
             tx.commit();
-            System.out.println("Database populated successfully with sample data, including ConnectionRequests.");
+            System.out.println("Database populated successfully with sample data, NOT including ConnectionRequests.");
         } catch (Exception e) {
             if (tx.isActive()) {
                 tx.rollback();
