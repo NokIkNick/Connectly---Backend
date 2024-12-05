@@ -19,6 +19,8 @@ public class ChatServiceDAO {
     private static String URI = "mongodb://chatconnectly.wintherdev.com";
     private static String DB_NAME = "ConnectlyDB";
     private static ObjectMapper objectMapper = new ObjectMapper();
+    private static String username;
+    private static String password;
 
 
     public static ChatServiceDAO getInstance(boolean isTesting) {
@@ -31,13 +33,13 @@ public class ChatServiceDAO {
 
             String isDeployed = System.getenv("DEPLOYED");
             if(isDeployed != null){
-                String username = System.getenv("MONGODB_USERNAME");
-                String password = System.getenv("MONGODB_PASSWORD");
+                username = System.getenv("MONGODB_USERNAME");
+                password = System.getenv("MONGODB_PASSWORD");
                 URI = "mongodb://"+username+":"+password+"@localhost:27017/?authSource="+DB_NAME;
             }else {
                 try {
-                    String username = Utils.getPropertyValue("REMOTE_USER", "config.properties");
-                    String password = Utils.getPropertyValue("REMOTE_USER_PASSWORD", "config.properties");
+                    username = Utils.getPropertyValue("REMOTE_USER", "config.properties");
+                    password = Utils.getPropertyValue("REMOTE_USER_PASSWORD", "config.properties");
                     URI = "mongodb://" + username + ":" + password + "@chatconnectly.wintherdev.com:27017/?authSource="+DB_NAME;
                 }catch( Exception e){
                     e.printStackTrace();

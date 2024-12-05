@@ -132,3 +132,13 @@ message: Error while creating new chat: Error while creating chat: Command faile
 timestamp: 2024-12-03T16:31:26.779119
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: Error while creating chat: Command failed with error 13 (Unauthorized): 'not authorized on ConnectlyDB to execute command { find: "Chats", filter: { participants: { $all: [ "testgutmail@coolmail.dk", "testdamemail4@cooleremail.dk" ] } }, limit: 1, singleBatch: true, $db: "ConnectlyDB", lsid: { id: UUID("25fb3134-2b5c-4fd3-83e2-1664adb36093") } }' on server chatconnectly.wintherdev.com:27017. The full response is {"ok": 0.0, "errmsg": "not authorized on ConnectlyDB to execute command { find: \"Chats\", filter: { participants: { $all: [ \"testgutmail@coolmail.dk\", \"testdamemail4@cooleremail.dk\" ] } }, limit: 1, singleBatch: true, $db: \"ConnectlyDB\", lsid: { id: UUID(\"25fb3134-2b5c-4fd3-83e2-1664adb36093\") } }", "code": 13, "codeName": "Unauthorized"}, 500, 500
+timestamp: 2024-12-05T11:36:47.912973900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: Error while creating chat: Command failed with error 13 (Unauthorized): 'not authorized on ConnectlyDB to execute command { find: "Chats", filter: { participants: { $all: [ "testgutmail@coolmail.dk", "testdamemail4@cooleremail.dk" ] } }, limit: 1, singleBatch: true, $db: "ConnectlyDB", lsid: { id: UUID("bcdf6d87-7b83-41d0-b090-db1088805466") } }' on server chatconnectly.wintherdev.com:27017. The full response is {"ok": 0.0, "errmsg": "not authorized on ConnectlyDB to execute command { find: \"Chats\", filter: { participants: { $all: [ \"testgutmail@coolmail.dk\", \"testdamemail4@cooleremail.dk\" ] } }, limit: 1, singleBatch: true, $db: \"ConnectlyDB\", lsid: { id: UUID(\"bcdf6d87-7b83-41d0-b090-db1088805466\") } }", "code": 13, "codeName": "Unauthorized"}, 500, 500
+timestamp: 2024-12-05T12:00:12.028514500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------

@@ -8,7 +8,7 @@ import dk.connectly.utils.Populator;
 
 public class Main {
     public static void main(String[] args) {
-        boolean isTesting = true;
+        boolean isTesting = false;
         ApplicationConfig app = ApplicationConfig.getInstance()
                 .initiateServer()
                 .setExceptionHandling()
@@ -17,11 +17,14 @@ public class Main {
                 .checkSecurityRoles(isTesting)
                 .configureCors();
 
-        //Populator populator = new Populator(HibernateConfig.getEntityManagerFactoryConfig());
+        //Populator populator = new Populator(HibernateConfig.getEntityManagerFactoryConfig(isTesting));
 
 
-        //ChatServiceDAO.getInstance(isTesting).establishTestConnection();
+
+
         //populator.populate();
+        //populator.drop();
+        //ChatServiceDAO.getInstance(isTesting).dropDatabase();
 
     }
 }

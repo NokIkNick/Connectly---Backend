@@ -117,4 +117,27 @@ public class Populator {
             em.close();
         }
     }
+
+    public void drop() {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try (em) {
+            tx.begin();
+            em.createNativeQuery("DROP TABLE IF EXISTS connection_request CASCADE").executeUpdate();
+            em.createNativeQuery("DROP TABLE IF EXISTS connection CASCADE").executeUpdate();
+            em.createNativeQuery("DROP TABLE IF EXISTS post CASCADE").executeUpdate();
+            em.createNativeQuery("DROP TABLE IF EXISTS user_roles CASCADE").executeUpdate();
+            em.createNativeQuery("DROP TABLE IF EXISTS user_topics CASCADE").executeUpdate();
+            em.createNativeQuery("DROP TABLE IF EXISTS users CASCADE").executeUpdate();
+            em.createNativeQuery("DROP TABLE IF EXISTS role CASCADE").executeUpdate();
+            em.createNativeQuery("DROP TABLE IF EXISTS topic CASCADE").executeUpdate();
+            tx.commit();
+            System.out.println("Database tables dropped.");
+        } catch (Exception e) {
+            if (tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
 }
