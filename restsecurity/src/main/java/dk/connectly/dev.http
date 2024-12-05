@@ -112,3 +112,19 @@ POST http://localhost:7070/api/post/create
 "content":"test",
 "visibility":"FRIEND"
 }
+
+###
+POST http://localhost:7070/api/blocking/block
+
+{
+"blocking_email":"user1@example.com",
+"blocked_email":"user2@example.com"
+}
+
+###
+POST http://localhost:7070/api/blocking/unblock
+
+{
+"blocking_email":"user1@example.com",
+"blocked_email":"user2@example.com"
+}
