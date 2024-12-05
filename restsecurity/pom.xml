@@ -297,7 +297,7 @@
                         <transformer
                                 implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                             <mainClass>
-                                org/example/Main <!-- Here you should put the main class of your application -->
+                                restsecurity/src/main/java/dk/connectly/Main <!-- Here you should put the main class of your application -->
                             </mainClass>
                         </transformer>
                     </transformers>
