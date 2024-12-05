@@ -1,37 +1,36 @@
 package resources.stepdefinitions;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dk.connectly.dtos.ConnectionRequestDTO;
-import dk.connectly.dtos.LoginDTO;
-import dk.connectly.dtos.PostDTO;
-import dk.connectly.dtos.TokenDTO;
-import com.fasterxml.jackson.core.type.TypeReference;
+import dk.connectly.dtos.*;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.javalin.http.HttpStatus;
-import io.cucumber.java.en.Then;
 
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class createPosDef {
+public class blockUserDef {
     private static String user1;
     private static LoginDTO user1Info = new LoginDTO("dude1@example.com", "userPass@123.12");
     private static TokenDTO token;
 
-    private static PostDTO postDTO;
+    private static String user2;
+    private static LoginDTO user2Info = new LoginDTO("dude2@example.com", "userPass@123.12");
+
 
     private static ObjectMapper om = new ObjectMapper();
 
+    private HttpResponse<String> response;
+    private HttpRequest request;
 
     @Given("the user is logged in")
-    public void theUserIsLoggedIn() {
+    public void the_user_is_logged_in() {
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest.BodyPublisher bp;
@@ -58,49 +57,43 @@ public class createPosDef {
 
     }
 
-    @When("the user creates a post")
-    public void theUserCreatesAPost() {
+
+    @When("the user blocks another user")
+    public void theUserBlocksAnotherUser() {
         HttpClient client = HttpClient.newHttpClient();
 
         try {
-            postDTO = new PostDTO();
-            HttpRequest.BodyPublisher bp = HttpRequest.BodyPublishers.ofString(om.writeValueAsString(postDTO));
+            BlockingDTO dto = new BlockingDTO(user1Info.getEmail(), user2Info.getEmail());
+            HttpRequest.BodyPublisher bp = HttpRequest.BodyPublishers.ofString(om.writeValueAsString(dto));
 
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:7070/api/post/create"))
+             request = HttpRequest.newBuilder()
+                    .uri(URI.create("http://localhost:7070/api/block"))
                     .header("Authorization", "Bearer " + token.getToken())
                     .POST(bp)
                     .build();
 
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+             response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             assertEquals(HttpStatus.CREATED, response.statusCode());
 
         } catch (Exception e) {
             assertTrue(false);
         }
-
+        
     }
 
-
-    @Then("the post is created successfully")
-    public void thePostIsCreatedSuccessfully() {
-        HttpClient client = HttpClient.newHttpClient();
+    @Then("the blocked user is added to the user's block list")
+    public void theBlockedUserIsAddedToTheUserSBlockList() {
 
         try {
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:7070/api/post/posts"))
-                    .header("Authorization", "Bearer " + token.getToken())
-                    .GET()
-                    .build();
+            HttpClient client = HttpClient.newHttpClient();
 
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+             response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             assertEquals(HttpStatus.OK, response.statusCode());
-
-            List<PostDTO> posts = om.readValue(response.body(), new TypeReference<>() {});
-            assertTrue(posts.stream().anyMatch(post -> post.equals(postDTO)),
-                    "Created post not found in the list of posts.");
+            BlockingDTO[] blockingDTOs = om.readValue(response.body(), BlockingDTO[].class);
+            assertEquals(1, blockingDTOs.length);
+            assertEquals(user2Info.getEmail(), blockingDTOs[0].getBlocked_email());
 
         } catch (Exception e) {
             assertTrue(false);
