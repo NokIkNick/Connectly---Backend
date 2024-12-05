@@ -3,7 +3,6 @@ package dk.connectly.daos;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
 import dk.connectly.config.HibernateConfig;
-
 import java.util.List;
 
 public abstract class DAO<T, K> implements IDAO<T, K> {

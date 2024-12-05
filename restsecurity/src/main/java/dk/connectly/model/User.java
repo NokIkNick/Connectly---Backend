@@ -4,6 +4,12 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.mindrot.jbcrypt.BCrypt;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -15,6 +21,7 @@ import java.util.Set;
 @Table(name ="users")
 @AllArgsConstructor
 @NoArgsConstructor
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
 public class User {
     @Id
     @Column(unique = true, nullable = false)
@@ -32,6 +39,12 @@ public class User {
 
     @OneToMany(mappedBy = "receiver", fetch = FetchType.EAGER)
     private List<ConnectionRequest> connectionRequests = new ArrayList<>();
+
+    @JoinTable(name = "blocked_users", joinColumns = {
+            @JoinColumn(name = "blocking_email",referencedColumnName = "email")},inverseJoinColumns = {
+            @JoinColumn(name = "blocked_email",referencedColumnName = "email")})
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<User> blockedUsers = new ArrayList<>();
 
 
     @JoinTable(name = "user_role", joinColumns = {
@@ -54,6 +67,17 @@ public class User {
         addRole(roles);
 
     }
+
+    public void blockUser(User user){
+        if(user != null && !blockedUsers.contains(user)){
+            blockedUsers.add(user);
+        }
+    }
+
+    public void unblockUser(User user){
+        blockedUsers.remove(user);
+    }
+
     public void addRole(Role role){
         if(role != null && !roles.contains(role)){
             roles.add(role);

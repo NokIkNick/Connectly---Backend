@@ -6,20 +6,18 @@ import lombok.Setter;
 import dk.connectly.model.User;
 
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Getter
 @Setter
 @NoArgsConstructor
 public class UserDTO {
-
     private String email;
-    private String password;
-    private Set<String> roles;
 
-    public UserDTO(String email, String password, Set<String> roles){
-        this.email = email;
-        this.password = password;
-        this.roles = roles;
-    }
+    private String firstName;
+    private String lastName;
+    private Set<String> roles;
 
     public UserDTO(String email, Set<String> roles) {
         this.email = email;
@@ -27,11 +25,14 @@ public class UserDTO {
     }
 
     public UserDTO(User user){
-        this.email = user.getEmail();
-        this.password = user.getPassword();
-        this.roles = user.getRolesAsString();
+        this(user.getEmail(), user.getRolesAsString());
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
     }
 
 
+    public String getId(){
+        return getEmail();
+    }
 
 }

@@ -31,9 +31,7 @@ public class SecurityDao extends DAO<User, String> {
                 em.persist(role);
             }
             user.addRole(role);
-            em.getTransaction().begin();
-            em.persist(user);
-            em.getTransaction().commit();
+            create(user);
         }
         return user;
     }

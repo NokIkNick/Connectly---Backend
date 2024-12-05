@@ -1,9 +1,16 @@
 package dk.connectly.utils;
 
-public enum ConnectionType {
+import lombok.Getter;
 
-    FRIEND,
-    WORK,
-    FAMILY,
-    PUBLIC
+@Getter
+public enum ConnectionType implements OrdinalEnum<ConnectionType> {
+  WORK,
+  FAMILY,
+  FRIEND,
+  PUBLIC;
+
+  @Override
+  public String toString() {
+    return name();
+  }
 }
