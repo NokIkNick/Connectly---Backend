@@ -5,9 +5,8 @@ import java.util.HashMap;
 import dk.connectly.config.ApplicationConfig;
 import dk.connectly.config.HibernateConfig;
 import dk.connectly.config.Routes;
-import dk.connectly.model.Post;
+import dk.connectly.daos.ChatServiceDAO;
 import dk.connectly.utils.Populator;
-import jakarta.persistence.EntityManagerFactory;
 
 public class Main {
     private static String currentSetting = "";
@@ -57,8 +56,14 @@ public class Main {
                 .checkSecurityRoles(isTesting)
                 .configureCors();
 
-        Populator populator = new Populator(HibernateConfig.getEntityManagerFactoryConfig());
+        //Populator populator = new Populator(HibernateConfig.getEntityManagerFactoryConfig(isTesting));
+
+
+
+
         //populator.populate();
+        //populator.drop();
+        //ChatServiceDAO.getInstance(isTesting).dropDatabase();
 
     }
 }

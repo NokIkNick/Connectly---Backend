@@ -210,6 +210,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- MONGODB -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+
         <!-- Mockito -->
         <dependency>
             <groupId>org.mockito</groupId>
@@ -223,6 +230,7 @@
             <version>2.19.0</version>
             <scope>test</scope>
         </dependency>
+
 
 
     </dependencies>

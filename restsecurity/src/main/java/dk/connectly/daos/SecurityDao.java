@@ -23,7 +23,7 @@ public class SecurityDao extends DAO<User, String> {
     }
 
     public User createUser(String username, String password){
-        User user = new User(password, username);
+        User user = new User(password,username);
         try(var em = emf.createEntityManager()){
             Role role = em.find(Role.class, "USER");
             if(role == null){

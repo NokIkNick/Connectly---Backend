@@ -1,6 +1,7 @@
 package dk.connectly.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dk.connectly.controllers.ChatController;
 import dk.connectly.controllers.ConnectionController;
 import dk.connectly.controllers.ConnectionRequestController;
 import dk.connectly.controllers.SecurityController;
@@ -19,9 +20,10 @@ public class Routes {
     private static SecurityController sc;
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private static TestController tc;
+    private static ChatController cc;
     private static ConnectionRequestController crc;
     private static ConnectionController cc;
-    private static PostController pc;
+    private static PostController pc; 
 
     public static EndpointGroup getRoutes(boolean isTesting){
         sc = SecurityController.getInstance(isTesting);
@@ -29,6 +31,8 @@ public class Routes {
         crc = ConnectionRequestController.getInstance(isTesting);
         cc = ConnectionController.getInstance(isTesting);
         pc = PostController.getInstance(isTesting);
+        cc = ChatController.getInstance(isTesting);
+
         return () -> {
             path("/", () -> {
                 get("/", ctx -> ctx.json(objectMapper.createObjectNode().put("Message", "Connected Successfully")), roles.ANYONE);
@@ -55,11 +59,19 @@ public class Routes {
                 get("/user_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.USER);
                 get("/admin_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.ADMIN);
             });
+            path("/chat", () -> {
+                before(sc.authenticate());
+                post("/createChat", cc.createChat(), roles.USER);
+                get("/getChatByParticipants", cc.fetchChat(), roles.USER);
+                get("/getChatById/{id}", cc.fetchChatById(), roles.USER);
+                post("/sendMessage", cc.sendMessage(), roles.USER);
+                get("/getMessagesByChatId/{id}", cc.getMessagesByChatId(), roles.USER);
+                get("/getChatsByUser/{email}", cc.getChatsByUser(), roles.USER);
+            });
             path("/post", () -> {
                 post("/create", pc.createPost(), roles.ANYONE);
                 get("/posts", pc.getPostsByVisibility(), roles.ANYONE);
             });
-
         };
     }
 
