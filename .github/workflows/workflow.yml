@@ -18,7 +18,8 @@ jobs:
           distribution: 'temurin'
       -
         name: Build with Maven
-        run: mvn --batch-mode --update-snapshots -f restsecurity/pom.xml package
+        run: mvn --batch-mode --update-snapshots package
+        working-directory: restsecurity
       -
         # https://docs.docker.com/build/ci/github-actions/tr
         name: Login to Docker Hub
