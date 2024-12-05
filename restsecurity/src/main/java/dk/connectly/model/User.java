@@ -40,6 +40,12 @@ public class User {
     @OneToMany(mappedBy = "receiver", fetch = FetchType.EAGER)
     private List<ConnectionRequest> connectionRequests = new ArrayList<>();
 
+    @JoinTable(name = "blocked_users", joinColumns = {
+            @JoinColumn(name = "blocking_email",referencedColumnName = "email")},inverseJoinColumns = {
+            @JoinColumn(name = "blocked_email",referencedColumnName = "email")})
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<User> blockedUsers = new ArrayList<>();
+
 
     @JoinTable(name = "user_role", joinColumns = {
             @JoinColumn(name = "user_email",referencedColumnName = "email")},inverseJoinColumns = {
@@ -60,6 +66,16 @@ public class User {
         this.password = BCrypt.hashpw(password,salt);
         addRole(roles);
 
+    }
+
+    public void blockUser(User user){
+        if(user != null && !blockedUsers.contains(user)){
+            blockedUsers.add(user);
+        }
+    }
+
+    public void unblockUser(User user){
+        blockedUsers.remove(user);
     }
 
     public void addRole(Role role){
