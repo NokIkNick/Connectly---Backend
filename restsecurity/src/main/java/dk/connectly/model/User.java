@@ -69,13 +69,18 @@ public class User {
     }
 
     public void blockUser(User user){
-        if(user != null && !blockedUsers.contains(user)){
+        if(user != null && !isBlocked(user)){
             blockedUsers.add(user);
         }
     }
 
     public void unblockUser(User user){
-        blockedUsers.remove(user);
+        for (User blockedUser : blockedUsers) {
+            if (blockedUser.getEmail().equals(user.getEmail())) {
+                blockedUsers.remove(blockedUser);
+                return;
+            }
+        }
     }
 
     public void addRole(Role role){
@@ -117,5 +122,14 @@ public class User {
         }
 
         return stringBuilder.toString();
+    }
+
+    public boolean isBlocked(User blockedUser) {
+        for (User user : blockedUsers) {
+            if (user.getEmail().equals(blockedUser.getEmail())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
