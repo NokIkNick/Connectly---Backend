@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
       -
         name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
+        run: mvn --batch-mode --update-snapshots restsecurity/pom.xml package
       -
         # https://docs.docker.com/build/ci/github-actions/tr
         name: Login to Docker Hub
@@ -34,6 +34,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./Dockerfile
+          file: restsecurity/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/connectlyBackend:latest
