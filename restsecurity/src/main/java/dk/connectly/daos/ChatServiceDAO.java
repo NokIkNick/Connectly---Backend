@@ -6,6 +6,7 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import dk.connectly.exceptions.ApiException;
+import dk.connectly.utils.Utils;
 import org.bson.Document;
 
 import java.util.Date;
@@ -15,7 +16,7 @@ import java.util.List;
 public class ChatServiceDAO {
 
     private static ChatServiceDAO instance;
-    private static String URI = "mongodb://159.223.24.167:27017/";
+    private static String URI = "mongodb://chatconnectly.wintherdev.com";
     private static String DB_NAME = "ConnectlyDB";
     private static ObjectMapper objectMapper = new ObjectMapper();
 
@@ -30,9 +31,16 @@ public class ChatServiceDAO {
 
             String isDeployed = System.getenv("DEPLOYED");
             if(isDeployed != null){
-                String MONGODB_URI = System.getenv("MONGODB_URI");
-                if(MONGODB_URI != null){
-                    URI = System.getenv("MONGODB_URI");
+                String username = System.getenv("MONGODB_USERNAME");
+                String password = System.getenv("MONGODB_PASSWORD");
+                URI = "mongodb://"+username+":"+password+"@localhost:27017/?authSource="+DB_NAME;
+            }else {
+                try {
+                    String username = Utils.getPropertyValue("REMOTE_USER", "config.properties");
+                    String password = Utils.getPropertyValue("REMOTE_USER_PASSWORD", "config.properties");
+                    URI = "mongodb://" + username + ":" + password + "@chatconnectly.wintherdev.com:27017/?authSource="+DB_NAME;
+                }catch( Exception e){
+                    e.printStackTrace();
                 }
             }
         }
@@ -82,6 +90,7 @@ public class ChatServiceDAO {
     public Document fetchChat(String userEmail1, String userEmail2) throws ApiException {
         try (MongoClient mongoClient = MongoClients.create(URI)){
             MongoDatabase database = mongoClient.getDatabase(DB_NAME);
+
             MongoCollection<Document> chats = database.getCollection("Chats");
 
 

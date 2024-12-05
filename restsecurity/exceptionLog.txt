@@ -83,3 +83,8 @@ message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify to
 timestamp: 2024-11-28T21:39:49.784095900
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: Error while creating chat: Exception authenticating MongoCredential{mechanism=SCRAM-SHA-1, userName='testDev', source='Test', password=<hidden>, mechanismProperties=<hidden>}, 500, 500
+timestamp: 2024-12-03T16:39:35.261602
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------

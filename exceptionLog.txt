@@ -107,3 +107,28 @@ message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify to
 timestamp: 2024-11-28T22:31:05.961962600
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: Error while creating chat: Timed out while waiting for a server that matches ReadPreferenceServerSelector{readPreference=primary}. Client view of cluster state is {type=UNKNOWN, servers=[{address=159.223.24.167:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: no further information}}], 500, 500
+timestamp: 2024-12-03T13:07:19.758492300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: Error while creating chat: The connection string is invalid. Connection strings must start with either 'mongodb://' or 'mongodb+srv://, 500, 500
+timestamp: 2024-12-03T14:40:44.294351200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: Error while creating chat: Timed out while waiting for a server that matches ReadPreferenceServerSelector{readPreference=primary}. Client view of cluster state is {type=UNKNOWN, servers=[{address=chatconnectly.wintherdev.com:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: no further information}}], 500, 500
+timestamp: 2024-12-03T14:42:10.240497600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-12-03T16:31:13.430540100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: Error while creating chat: Command failed with error 13 (Unauthorized): 'not authorized on ConnectlyDB to execute command { find: "Chats", filter: { participants: { $all: [ "testgutmail@coolmail.dk", "testdamemail4@cooleremail.dk" ] } }, limit: 1, singleBatch: true, $db: "ConnectlyDB", lsid: { id: UUID("eff48f23-68b1-4041-a80c-1987fecce308") } }' on server chatconnectly.wintherdev.com:27017. The full response is {"ok": 0.0, "errmsg": "not authorized on ConnectlyDB to execute command { find: \"Chats\", filter: { participants: { $all: [ \"testgutmail@coolmail.dk\", \"testdamemail4@cooleremail.dk\" ] } }, limit: 1, singleBatch: true, $db: \"ConnectlyDB\", lsid: { id: UUID(\"eff48f23-68b1-4041-a80c-1987fecce308\") } }", "code": 13, "codeName": "Unauthorized"}, 500, 500
+timestamp: 2024-12-03T16:31:26.779119
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
