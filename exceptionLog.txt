@@ -391,3 +391,8 @@ message: Unexpected character ('b' (code 98)): was expecting a colon to separate
 timestamp: 2024-12-05T16:41:15.760524900
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-12-05T18:09:50.989304200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
