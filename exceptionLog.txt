@@ -362,3 +362,32 @@ message: Error while getting posts Error while getting posts for user: user1@exa
 timestamp: 2024-11-28T12:36:22.289336900
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-12-05T16:18:29.465428500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: could not execute statement [ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detail: Key (email)=(Coolgutmand45) already exists.] [/* insert for dk.connectly.model.User */insert into users (firstName,lastName,password,email) values (?,?,?,?)]
+timestamp: 2024-12-05T16:18:53.499652100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-12-05T16:26:40.386410700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Unexpected character ('b' (code 98)): was expecting a colon to separate field name and value
+ at [Source: (String)"{
+
+"email":"Coolgutmand45@hej.dk",
+"password":"coolkode21354",
+"firstName":"jonny",
+"lastName:"boy"
+
+}"; line: 6, column: 13]
+timestamp: 2024-12-05T16:41:15.760524900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------

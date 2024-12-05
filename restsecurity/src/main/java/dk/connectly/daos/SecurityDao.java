@@ -22,8 +22,8 @@ public class SecurityDao extends DAO<User, String> {
         return instance;
     }
 
-    public User createUser(String username, String password){
-        User user = new User(password,username);
+    public User createUser(String username, String password, String firstName, String lastName){
+        User user = new User(password,username, firstName, lastName);
         try(var em = emf.createEntityManager()){
             Role role = em.find(Role.class, "USER");
             if(role == null){
