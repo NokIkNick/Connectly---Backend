@@ -75,4 +75,14 @@ public class ConnectionRequestDAO extends DAO<ConnectionRequest, Integer> {
                     .setParameter(2, secondUser)
                     .getResultList();
     }
+
+    public List<ConnectionRequest> getByReciever(UserDTO receiver) {
+        try(var em = emf.createEntityManager()){
+            User us = em.find(User.class, receiver.getId());
+            return em.createQuery("select cr from ConnectionRequest cr where cr.receiver = ?1",
+                            ConnectionRequest.class)
+                        .setParameter(1, us)
+                        .getResultList();
+        }
+    }
 }

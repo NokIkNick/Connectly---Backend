@@ -37,17 +37,25 @@ public class Routes {
                 post("/register", sc.register(), roles.ANYONE);
             });
             path("/connection", () -> {
+                // Using
                 post("/request/new", crc.setupRequest(), roles.ANYONE); // To Do change back to roles.USER once authenticate can correctly identify USER
                 put("/request/confirm", cc.acceptRequest(), roles.ANYONE);
+
+                // Gather
+                get("/request/received", crc.getMyRequests(), roles.ANYONE);
+                get("/request/receivedOf", crc.getRequestsOf(), roles.ANYONE); // for when not logged in, future ADMIN
+                
                 get("/get/connections", cc.getAllIAmConnectedTo(), roles.ANYONE);
-                get("/get/connectionsOf", cc.getAllConnectionsTo(), roles.ANYONE);
+                get("/get/connectionsOf", cc.getAllConnectionsTo(), roles.ANYONE); // for when not logged in, future ADMIN
+                
+                /*// Debugging
                 get("/test", (ctx) -> {
                     var cdao = ConnectionDAO.getInstance(false);
                     List<Connection> conns = cdao.getAll();
                     ctx.json(conns.stream().map(x-> {
                         return new ConnectionDTO(x);
                     }).toList());
-                }, roles.ANYONE);
+                }, roles.ANYONE);*/
             });
             path("/protected", () -> {
                 get("/user_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.USER);
