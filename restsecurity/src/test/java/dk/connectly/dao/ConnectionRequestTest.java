@@ -6,10 +6,13 @@ import dk.connectly.daos.ConnectionDAO;
 import dk.connectly.daos.ConnectionRequestDAO;
 import dk.connectly.daos.DAO;
 import dk.connectly.dtos.ConnectionRequestDTO;
+import dk.connectly.dtos.UserDTO;
+import dk.connectly.exceptions.ApiException;
 import dk.connectly.model.Connection;
 import dk.connectly.model.ConnectionRequest;
 import dk.connectly.model.User;
 import dk.connectly.utils.ConnectionType;
+import jakarta.persistence.EntityExistsException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +27,7 @@ public class ConnectionRequestTest {
   public static void setup(){
     crdao = ConnectionRequestDAO.getInstance(true);
     /// setup users & a anonumous dao as it's not created yet elsewhere.
-    DAO<User, Integer> userdao = new DAO<User,Integer>(User.class, true){
+    DAO<User, String> userdao = new DAO<User, String>(User.class, true){
       
     };
     user1 = new User("test1", "testConnectionRequestTest1@test.dk");

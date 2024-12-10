@@ -53,14 +53,14 @@ public class Routes {
                 get("/get/connections", cc.getAllIAmConnectedTo(), roles.ANYONE);
                 get("/get/connectionsOf", cc.getAllConnectionsTo(), roles.ANYONE); // for when not logged in, future ADMIN
                 
-                /*// Debugging
+                // Debugging - Remove later
                 get("/test", (ctx) -> {
                     var cdao = ConnectionDAO.getInstance(false);
                     List<Connection> conns = cdao.getAll();
                     ctx.json(conns.stream().map(x-> {
                         return new ConnectionDTO(x);
                     }).toList());
-                }, roles.ANYONE);*/
+                }, roles.ANYONE);
             });
             path("/protected", () -> {
                 before(sc.authenticate());
