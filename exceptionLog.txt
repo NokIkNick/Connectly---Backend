@@ -17,3 +17,382 @@ message: inStream parameter is null
 timestamp: 2024-11-21T13:54:50.310793100
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: class java.lang.Long cannot be cast to class java.lang.Integer (java.lang.Long and java.lang.Integer are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-26T22:27:25.756743300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: Error while creating chat: Chat already exists: {"_id": 1, "participants": ["testgutmail@coolmail.dk", "testdamemail@cooleremail.dk"], "created_at": "Tue Nov 26 22:27:25 CET 2024", "last_message_at": null}, 500, 500, 500
+timestamp: 2024-11-26T22:28:14.458868400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: class java.lang.String cannot be cast to class java.util.Date (java.lang.String and java.util.Date are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-26T22:28:57.398198400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while fetching chat: No chat was found with the id: 1, 500, 500
+timestamp: 2024-11-26T23:47:07.360730100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while sending message: class org.bson.types.ObjectId cannot be cast to class java.lang.Long (org.bson.types.ObjectId is in unnamed module of loader 'app'; java.lang.Long is in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:12:48.343300300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while sending message: class org.bson.types.ObjectId cannot be cast to class java.lang.Long (org.bson.types.ObjectId is in unnamed module of loader 'app'; java.lang.Long is in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:14:37.054970700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while sending message: class org.bson.types.ObjectId cannot be cast to class java.lang.Long (org.bson.types.ObjectId is in unnamed module of loader 'app'; java.lang.Long is in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:16:23.921034200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while sending message: class org.bson.types.ObjectId cannot be cast to class java.lang.Integer (org.bson.types.ObjectId is in unnamed module of loader 'app'; java.lang.Integer is in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:18:00.848687400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while sending message: class java.lang.Integer cannot be cast to class java.lang.Long (java.lang.Integer and java.lang.Long are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:19:39.420261600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while fetching messages: class java.lang.Integer cannot be cast to class java.lang.Long (java.lang.Integer and java.lang.Long are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:35:06.942885400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while fetching messages: class java.lang.Integer cannot be cast to class java.lang.Long (java.lang.Integer and java.lang.Long are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:40:17.132944700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while fetching messages: class java.lang.Integer cannot be cast to class java.lang.Long (java.lang.Integer and java.lang.Long are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:40:33.051593100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Invalid salt version
+timestamp: 2024-11-28T11:48:40.300993800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Invalid salt version
+timestamp: 2024-11-28T11:51:11.892582800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Invalid salt version
+timestamp: 2024-11-28T11:51:36.200398
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Invalid salt version
+timestamp: 2024-11-28T11:57:08.797218700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Invalid salt version
+timestamp: 2024-11-28T12:04:17.954239500
+=======
+message: Unrecognized field "username" (class dk.connectly.dtos.UserDTO), not marked as ignorable (3 known properties: "password", "email", "roles"])
+ at [Source: (String)"{
+"username":"user1@example.com",
+"password":"password1"
+}"; line: 2, column: 13] (through reference chain: dk.connectly.dtos.UserDTO["username"])
+timestamp: 2024-11-22T10:30:00.022765500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Unrecognized field "username" (class dk.connectly.dtos.UserDTO), not marked as ignorable (3 known properties: "password", "email", "roles"])
+ at [Source: (String)"{
+"username":"user1@example.com",
+"password":"password1"
+}"; line: 2, column: 13] (through reference chain: dk.connectly.dtos.UserDTO["username"])
+timestamp: 2024-11-22T10:48:16.485966400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Unrecognized field "username" (class dk.connectly.dtos.UserDTO), not marked as ignorable (3 known properties: "password", "email", "roles"])
+ at [Source: (String)"{
+"username":"user1@example.com",
+"password":"password1"
+}"; line: 2, column: 13] (through reference chain: dk.connectly.dtos.UserDTO["username"])
+timestamp: 2024-11-26T09:10:30.793943700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postUnexpected character ('"' (code 34)): was expecting comma to separate Object entries
+ at [Source: (String)"{
+"title":"test",
+"content":"test"
+"visibility":"FRIEND"
+}"; line: 4, column: 2], 500
+timestamp: 2024-11-26T09:26:05.286564100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Unrecognized field "username" (class dk.connectly.dtos.UserDTO), not marked as ignorable (3 known properties: "password", "email", "roles"])
+ at [Source: (String)"{
+"username":"user1@example.com",
+"password":"password1"
+}"; line: 2, column: 13] (through reference chain: dk.connectly.dtos.UserDTO["username"])
+timestamp: 2024-11-26T09:30:06.659854200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCannot construct instance of `dk.connectly.model.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('user1@example.com')
+ at [Source: (String)"{
+"author":"user1@example.com",
+"title":"test",
+"content":"test",
+"visibility":"FRIEND"
+}"; line: 2, column: 10] (through reference chain: dk.connectly.dtos.PostDTO["author"]), 500
+timestamp: 2024-11-26T09:41:45.059708600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCannot construct instance of `dk.connectly.model.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('user1@example.com')
+ at [Source: (String)"{
+"author":"user1@example.com",
+"title":"test",
+"content":"test",
+"visibility":"FRIEND"
+}"; line: 2, column: 10] (through reference chain: dk.connectly.dtos.PostDTO["author"]), 500
+timestamp: 2024-11-26T10:07:33.998161900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCannot construct instance of `dk.connectly.model.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('user1@example.com')
+ at [Source: (String)"{
+"author":"user1@example.com",
+"title":"test",
+"content":"test",
+"visibility":"FRIEND"
+}"; line: 2, column: 10] (through reference chain: dk.connectly.dtos.PostDTO["author"]), 500
+timestamp: 2024-11-26T10:17:43.263204800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCannot construct instance of `dk.connectly.model.User` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('user1@example.com')
+ at [Source: (String)"{
+"author":"user1@example.com",
+"title":"test",
+"content":"test",
+"visibility":"FRIEND"
+}"; line: 2, column: 10] (through reference chain: dk.connectly.dtos.PostDTO["author"]), 500
+timestamp: 2024-11-26T10:20:45.401435
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting postsUnexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (String)"{
+"email":"user1@example.com",
+}"; line: 3, column: 2], 500
+timestamp: 2024-11-26T10:47:15.846718200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting postsCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:53:55.220455400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting postsCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:54:06.626874500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting postsCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:54:16.259225800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting postsCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:54:56.225009100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:57:04.679640200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T09:57:39.100145800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postCould not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T10:00:12.518935600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T10:00:55.498080300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T10:02:56.261581500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T10:05:17.885056100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T10:05:25.731005700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a], 500
+timestamp: 2024-11-28T10:08:54.301790400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : WORK] [n/a]
+timestamp: 2024-11-28T10:14:02.851056200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:14:17.865486200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T10:40:46.754719100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T10:40:50.992666100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
+timestamp: 2024-11-28T10:40:55.427904100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
+timestamp: 2024-11-28T10:40:56.720721100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
+timestamp: 2024-11-28T10:40:59.319232700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:41:23.839319500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:41:37.530715800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : WORK] [n/a]
+timestamp: 2024-11-28T10:41:50.110852200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:42:11.248805800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:42:14.021410400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error attempting to apply AttributeConverter
+timestamp: 2024-11-28T10:45:44.225639400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T10:46:01.033139300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : WORK] [n/a]
+timestamp: 2024-11-28T10:46:07.112765900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
+timestamp: 2024-11-28T10:46:13.885838400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-11-28T12:29:37.206347300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postfailed to lazily initialize a collection of role: dk.connectly.model.User.posts: could not initialize proxy - no Session (through reference chain: dk.connectly.model.Post["author"]->dk.connectly.model.User["posts"]), 500
+timestamp: 2024-11-28T12:32:19.525285200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postfailed to lazily initialize a collection of role: dk.connectly.model.User.posts: could not initialize proxy - no Session (through reference chain: dk.connectly.model.Post["author"]->dk.connectly.model.User["posts"]), 500
+timestamp: 2024-11-28T12:32:38.081911300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while getting posts Error while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [dk.connectly.utils.ConnectionType] did not match parameter type [java.util.Set (n/a)], 500, 500
+timestamp: 2024-11-28T12:36:22.289336900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-12-05T16:18:29.465428500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: could not execute statement [ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detail: Key (email)=(Coolgutmand45) already exists.] [/* insert for dk.connectly.model.User */insert into users (firstName,lastName,password,email) values (?,?,?,?)]
+timestamp: 2024-12-05T16:18:53.499652100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-12-05T16:26:40.386410700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Unexpected character ('b' (code 98)): was expecting a colon to separate field name and value
+ at [Source: (String)"{
+
+"email":"Coolgutmand45@hej.dk",
+"password":"coolkode21354",
+"firstName":"jonny",
+"lastName:"boy"
+
+}"; line: 6, column: 13]
+timestamp: 2024-12-05T16:41:15.760524900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-12-05T18:09:50.989304200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------

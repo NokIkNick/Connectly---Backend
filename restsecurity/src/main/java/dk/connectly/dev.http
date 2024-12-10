@@ -2,17 +2,21 @@ POST http://localhost:7070/api/auth/register
 
 {
 
-"email":"admin@example.com",
-"password":"adminpass"
+"email":"Coolgutmand45@hej.dk",
+"password":"coolkode21354",
+"firstName":"jonny",
+"lastName":"boy"
 
 }
-###
 
+###
 POST http://localhost:7070/api/auth/login
 
 {
-"email":"admin@example.com",
-"password":"adminpass"
+
+"email":"Coolgutmand45@hej.dk",
+"password":"coolkode21354"
+
 }
 
 ###
@@ -30,10 +34,70 @@ POST http://localhost:7070/api/create
 "name":"test"
 }
 
+###
+
+POST http://localhost:7070/api/chat/createChat
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NSIsImV4cCI6MTczMzQxMzc3NCwicm9sZXMiOiJVU0VSIiwidXNlcm5hbWUiOiJDb29sZ3V0bWFuZDQ1In0.fpZTUOcXZIR-EbbYpfnpln8Qt6vD46d-6JpWAC_IIFw
+
+{
+"participants": [
+  "testgutmail@coolmail.dk",
+  "testdamemail4@cooleremail.dk"
+]
+
+}
+
+###
+
+GET http://localhost:7070/api/chat/getChatByParticipants
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NSIsImV4cCI6MTczMzQxMzc3NCwicm9sZXMiOiJVU0VSIiwidXNlcm5hbWUiOiJDb29sZ3V0bWFuZDQ1In0.fpZTUOcXZIR-EbbYpfnpln8Qt6vD46d-6JpWAC_IIFw
+
+{
+  "participants": [
+    "testgutmail@coolmail.dk",
+    "testdamemail@cooleremail.dk"
+  ]
+
+}
+###
+
+GET http://localhost:7070/api/chat/getChatById/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsiLCJleHAiOjE3MzM0MjAzOTYsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsifQ.Aku5jkQXd62I4YSoqYgn5O0_7lSCZS4F0nYvTXMBcyA
+###
+
+POST http://localhost:7070/api/chat/sendMessage
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsiLCJleHAiOjE3MzM0MTgxMzAsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsifQ.1C6_g7lkDc5Uup1qvd1GzEoUHNjyVY5zL7c7V6tfbRk
+
+{
+
+  "chat_id": 1,
+  "messenger": "testgutmail@coolmail.dk",
+  "message": "Hi how are you doing :)"
+
+}
+
+###
+
+GET http://localhost:7070/api/chat/getMessagesByChatId/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsiLCJleHAiOjE3MzM0MjAzOTYsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsifQ.Aku5jkQXd62I4YSoqYgn5O0_7lSCZS4F0nYvTXMBcyA
+
+###
+
+GET http://localhost:7070/api/chat/getChatsByUser/testgutmail@coolmail.dk
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsiLCJleHAiOjE3MzM0MjAzOTYsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsifQ.Aku5jkQXd62I4YSoqYgn5O0_7lSCZS4F0nYvTXMBcyA
+
+
 ### Create New Connection Request
 
 POST http://localhost:7070/api/connection/request/new
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQiLCJleHAiOjE3MzIwMjQ5MjYsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQifQ.Oep8zCD73riVO7RZbBonPHaitsEdTlhswaQF1icRBjo
+
 {
   "connection":{
     "email":"Coolgutmand2",
@@ -49,6 +113,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ
 
 PUT http://localhost:7070/api/connection/request/confirm
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQyIiwiZXhwIjoxNzMyMDI3NjUzLCJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6IkNvb2xndXRtYW5kMiJ9.IWo6dxx4sdK5u3AYlb6b69_zu2wwuktb_XEWP6fEXHE
+
 {
   "id":7,
   "receiver":{
@@ -69,3 +134,45 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ
 ### test connection look
 GET http://localhost:7070/api/connection/test
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQyIiwiZXhwIjoxNzMyMDI5NTE2LCJyb2xlcyI6IlVTRVIiLCJ1c2VybmFtZSI6IkNvb2xndXRtYW5kMiJ9.AWBnkME4Rvl3GO4n6dHze1-Saqxk5urxk8ybiO57924
+
+###
+POST http://localhost:7070/api/auth/register
+
+{
+
+"email":"user1@example.com",
+"password":"password1"
+
+}
+
+###
+POST http://localhost:7070/api/auth/login
+
+{
+"email":"user1@example.com",
+"password":"password1"
+}
+###
+GET  http://localhost:7070/api/post/posts?visibility=FRIEND&page=1&size=10
+
+{
+"email":"user1@example.com"
+}
+
+###
+GET  http://localhost:7070/api/post/posts?visibility=FRIEND
+
+{
+"email":"user1@example.com"
+}
+
+###
+POST http://localhost:7070/api/post/create
+
+{
+"author":"user1@example.com",
+"title":"test",
+"content":"test",
+"visibility":"FRIEND"
+}
+
