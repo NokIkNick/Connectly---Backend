@@ -1,7 +1,14 @@
 package dk.connectly.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dk.connectly.controllers.*;
+import dk.connectly.controllers.ChatController;
+import dk.connectly.controllers.ConnectionController;
+import dk.connectly.controllers.ConnectionRequestController;
+import dk.connectly.controllers.SecurityController;
+import dk.connectly.controllers.TestController;
+import dk.connectly.controllers.PostController;
+import dk.connectly.controllers.BlockingController;
+
 import dk.connectly.daos.ConnectionDAO;
 import dk.connectly.dtos.ConnectionDTO;
 import dk.connectly.model.Connection;
@@ -15,6 +22,7 @@ public class Routes {
     private static SecurityController sc;
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private static TestController tc;
+    private static ChatController ccr;
     private static ConnectionRequestController crc;
     private static ConnectionController cc;
     private static PostController pc;
@@ -27,6 +35,8 @@ public class Routes {
         cc = ConnectionController.getInstance(isTesting);
         pc = PostController.getInstance(isTesting);
         bc = BlockingController.getInstance(isTesting);
+        ccr = ChatController.getInstance(isTesting);
+
         return () -> {
             path("/", () -> {
                 get("/", ctx -> ctx.json(objectMapper.createObjectNode().put("Message", "Connected Successfully")), roles.ANYONE);
@@ -52,6 +62,15 @@ public class Routes {
                 before(sc.authenticate());
                 get("/user_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.USER);
                 get("/admin_demo", ctx-> ctx.json(objectMapper.createObjectNode()), roles.ADMIN);
+            });
+            path("/chat", () -> {
+                before(sc.authenticate());
+                post("/createChat", ccr.createChat(), roles.USER);
+                get("/getChatByParticipants", ccr.fetchChat(), roles.USER);
+                get("/getChatById/{id}", ccr.fetchChatById(), roles.USER);
+                post("/sendMessage", ccr.sendMessage(), roles.USER);
+                get("/getMessagesByChatId/{id}", ccr.getMessagesByChatId(), roles.USER);
+                get("/getChatsByUser/{email}", ccr.getChatsByUser(), roles.USER);
             });
             path("/post", () -> {
                 post("/create", pc.createPost(), roles.ANYONE);

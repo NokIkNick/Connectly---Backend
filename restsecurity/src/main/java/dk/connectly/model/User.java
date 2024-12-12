@@ -68,6 +68,16 @@ public class User {
 
     }
 
+    public User(String password, String email, String firstName, String lastName){
+        this.email = email;
+        this.password= password;
+        String salt = BCrypt.gensalt();
+        this.password = BCrypt.hashpw(password,salt);
+        this.firstName =firstName;
+        this.lastName = lastName;
+
+    }
+
     public void blockUser(User user){
         if(user != null && !isBlocked(user)){
             blockedUsers.add(user);

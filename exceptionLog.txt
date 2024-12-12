@@ -18,6 +18,89 @@ timestamp: 2024-11-21T13:54:50.310793100
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
 status: 500
+message: Error while creating new chat: class java.lang.Long cannot be cast to class java.lang.Integer (java.lang.Long and java.lang.Integer are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-26T22:27:25.756743300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: Error while creating chat: Chat already exists: {"_id": 1, "participants": ["testgutmail@coolmail.dk", "testdamemail@cooleremail.dk"], "created_at": "Tue Nov 26 22:27:25 CET 2024", "last_message_at": null}, 500, 500, 500
+timestamp: 2024-11-26T22:28:14.458868400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating new chat: class java.lang.String cannot be cast to class java.util.Date (java.lang.String and java.util.Date are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-26T22:28:57.398198400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while fetching chat: No chat was found with the id: 1, 500, 500
+timestamp: 2024-11-26T23:47:07.360730100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while sending message: class org.bson.types.ObjectId cannot be cast to class java.lang.Long (org.bson.types.ObjectId is in unnamed module of loader 'app'; java.lang.Long is in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:12:48.343300300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while sending message: class org.bson.types.ObjectId cannot be cast to class java.lang.Long (org.bson.types.ObjectId is in unnamed module of loader 'app'; java.lang.Long is in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:14:37.054970700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while sending message: class org.bson.types.ObjectId cannot be cast to class java.lang.Long (org.bson.types.ObjectId is in unnamed module of loader 'app'; java.lang.Long is in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:16:23.921034200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while sending message: class org.bson.types.ObjectId cannot be cast to class java.lang.Integer (org.bson.types.ObjectId is in unnamed module of loader 'app'; java.lang.Integer is in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:18:00.848687400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while sending message: class java.lang.Integer cannot be cast to class java.lang.Long (java.lang.Integer and java.lang.Long are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:19:39.420261600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while fetching messages: class java.lang.Integer cannot be cast to class java.lang.Long (java.lang.Integer and java.lang.Long are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:35:06.942885400
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while fetching messages: class java.lang.Integer cannot be cast to class java.lang.Long (java.lang.Integer and java.lang.Long are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:40:17.132944700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while fetching messages: class java.lang.Integer cannot be cast to class java.lang.Long (java.lang.Integer and java.lang.Long are in module java.base of loader 'bootstrap'), 500
+timestamp: 2024-11-27T00:40:33.051593100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Invalid salt version
+timestamp: 2024-11-28T11:48:40.300993800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Invalid salt version
+timestamp: 2024-11-28T11:51:11.892582800
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Invalid salt version
+timestamp: 2024-11-28T11:51:36.200398
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Invalid salt version
+timestamp: 2024-11-28T11:57:08.797218700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Invalid salt version
+timestamp: 2024-11-28T12:04:17.954239500
+=======
 message: Unrecognized field "username" (class dk.connectly.dtos.UserDTO), not marked as ignorable (3 known properties: "password", "email", "roles"])
  at [Source: (String)"{
 "username":"user1@example.com",
@@ -257,113 +340,6 @@ IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
 status: 500
 message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
-timestamp: 2024-11-28T10:46:27.668381700
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
-timestamp: 2024-11-28T10:47:38.621673400
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
-timestamp: 2024-11-28T11:34:32.739410800
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Error while creating postCannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
-timestamp: 2024-11-28T11:34:37.820963100
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
-timestamp: 2024-11-28T11:34:50.564547600
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : WORK] [n/a]
-timestamp: 2024-11-28T11:36:44.478160400
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
-timestamp: 2024-11-28T11:37:20.805633600
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Could not extract column [3] from JDBC ResultSet [Bad value for type int : FRIEND] [n/a]
-timestamp: 2024-11-28T11:42:06.766635700
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
-timestamp: 2024-11-28T11:49:09.672776200
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
-timestamp: 2024-11-28T12:03:54.068582700
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
-timestamp: 2024-11-28T12:03:58.622421
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
-timestamp: 2024-11-28T12:04:01.823449600
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Error while getting posts Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null, 500
-timestamp: 2024-11-28T12:05:10.504408900
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Error while getting posts Invalid input: user and visibility must be provided., 400, 500
-timestamp: 2024-11-28T12:06:28.043728100
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
-timestamp: 2024-11-28T12:14:16.645081600
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: could not execute statement [ERROR: insert or update on table "user_role" violates foreign key constraint "fkn6r4465stkbdy93a9p8cw7u24"
-  Detail: Key (role_name)=(USER) is not present in table "role".] [/* insert for dk.connectly.model.User.roles */insert into user_role (user_email,role_name) values (?,?)]
-timestamp: 2024-11-28T12:14:33.907190400
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Error while getting posts Error while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [dk.connectly.utils.ConnectionType] did not match parameter type [java.util.Set (n/a)], 500, 500
-timestamp: 2024-11-28T12:21:42.753113
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
-timestamp: 2024-11-28T12:22:16.392751500
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Error while getting posts Error while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [dk.connectly.utils.ConnectionType] did not match parameter type [java.util.Set (n/a)], 500, 500
-timestamp: 2024-11-28T12:22:22.400500800
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Error while getting posts Error while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [dk.connectly.utils.ConnectionType] did not match parameter type [java.util.Set (n/a)], 500, 500
-timestamp: 2024-11-28T12:24:05.859512200
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Error while getting posts Error while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [dk.connectly.utils.ConnectionType] did not match parameter type [java.util.Set (n/a)], 500, 500
-timestamp: 2024-11-28T12:24:24.831066100
-IP:: 127.0.0.1
-----------------------------------------------------------------------------------
-status: 500
-message: Index 1 out of bounds for length 1
-timestamp: 2024-11-28T12:27:10.596069100
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
 status: 500
@@ -384,5 +360,39 @@ IP:: 127.0.0.1
 status: 500
 message: Error while getting posts Error while getting posts for user: user1@example.com with visibility: FRIEND. Details: Argument [FRIEND] of type [dk.connectly.utils.ConnectionType] did not match parameter type [java.util.Set (n/a)], 500, 500
 timestamp: 2024-11-28T12:36:22.289336900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-12-05T16:18:29.465428500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: could not execute statement [ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detail: Key (email)=(Coolgutmand45) already exists.] [/* insert for dk.connectly.model.User */insert into users (firstName,lastName,password,email) values (?,?,?,?)]
+timestamp: 2024-12-05T16:18:53.499652100
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-12-05T16:26:40.386410700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Unexpected character ('b' (code 98)): was expecting a colon to separate field name and value
+ at [Source: (String)"{
+
+"email":"Coolgutmand45@hej.dk",
+"password":"coolkode21354",
+"firstName":"jonny",
+"lastName:"boy"
+
+}"; line: 6, column: 13]
+timestamp: 2024-12-05T16:41:15.760524900
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: dk.connectly.exceptions.ApiException: Unauthorized. Could not verify token, 401
+timestamp: 2024-12-05T18:09:50.989304200
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------

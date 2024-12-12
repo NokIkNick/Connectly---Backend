@@ -2,17 +2,21 @@ POST http://localhost:7070/api/auth/register
 
 {
 
-"email":"admin@example.com",
-"password":"adminpass"
+"email":"Coolgutmand45@hej.dk",
+"password":"coolkode21354",
+"firstName":"jonny",
+"lastName":"boy"
 
 }
-###
 
+###
 POST http://localhost:7070/api/auth/login
 
 {
-"email":"admin@example.com",
-"password":"adminpass"
+
+"email":"Coolgutmand45@hej.dk",
+"password":"coolkode21354"
+
 }
 
 ###
@@ -29,6 +33,65 @@ POST http://localhost:7070/api/create
 {
 "name":"test"
 }
+
+###
+
+POST http://localhost:7070/api/chat/createChat
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NSIsImV4cCI6MTczMzQxMzc3NCwicm9sZXMiOiJVU0VSIiwidXNlcm5hbWUiOiJDb29sZ3V0bWFuZDQ1In0.fpZTUOcXZIR-EbbYpfnpln8Qt6vD46d-6JpWAC_IIFw
+
+{
+"participants": [
+  "testgutmail@coolmail.dk",
+  "testdamemail4@cooleremail.dk"
+]
+
+}
+
+###
+
+GET http://localhost:7070/api/chat/getChatByParticipants
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NSIsImV4cCI6MTczMzQxMzc3NCwicm9sZXMiOiJVU0VSIiwidXNlcm5hbWUiOiJDb29sZ3V0bWFuZDQ1In0.fpZTUOcXZIR-EbbYpfnpln8Qt6vD46d-6JpWAC_IIFw
+
+{
+  "participants": [
+    "testgutmail@coolmail.dk",
+    "testdamemail@cooleremail.dk"
+  ]
+
+}
+###
+
+GET http://localhost:7070/api/chat/getChatById/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsiLCJleHAiOjE3MzM0MjAzOTYsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsifQ.Aku5jkQXd62I4YSoqYgn5O0_7lSCZS4F0nYvTXMBcyA
+###
+
+POST http://localhost:7070/api/chat/sendMessage
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsiLCJleHAiOjE3MzM0MTgxMzAsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsifQ.1C6_g7lkDc5Uup1qvd1GzEoUHNjyVY5zL7c7V6tfbRk
+
+{
+
+  "chat_id": 1,
+  "messenger": "testgutmail@coolmail.dk",
+  "message": "Hi how are you doing :)"
+
+}
+
+###
+
+GET http://localhost:7070/api/chat/getMessagesByChatId/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsiLCJleHAiOjE3MzM0MjAzOTYsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsifQ.Aku5jkQXd62I4YSoqYgn5O0_7lSCZS4F0nYvTXMBcyA
+
+###
+
+GET http://localhost:7070/api/chat/getChatsByUser/testgutmail@coolmail.dk
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJOaWNrbGFzIFcuIiwic3ViIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsiLCJleHAiOjE3MzM0MjAzOTYsInJvbGVzIjoiVVNFUiIsInVzZXJuYW1lIjoiQ29vbGd1dG1hbmQ0NUBoZWouZGsifQ.Aku5jkQXd62I4YSoqYgn5O0_7lSCZS4F0nYvTXMBcyA
+
 
 ### Create New Connection Request
 
@@ -128,3 +191,4 @@ POST http://localhost:7070/api/blocking/unblock
 "blocking_email":"user1@example.com",
 "blocked_email":"user2@example.com"
 }
+
