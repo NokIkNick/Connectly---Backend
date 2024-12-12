@@ -28,7 +28,9 @@ public class SecurityDao extends DAO<User, String> {
             Role role = em.find(Role.class, "USER");
             if(role == null){
                 role = new Role("USER");
+                em.getTransaction().begin();
                 em.persist(role);
+                em.getTransaction().commit();
             }
             user.addRole(role);
             create(user);

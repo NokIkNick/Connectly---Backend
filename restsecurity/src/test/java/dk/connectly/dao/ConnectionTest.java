@@ -25,7 +25,7 @@ public class ConnectionTest {
     crdao = ConnectionRequestDAO.getInstance(true);
 
     /// setup users & a anonumous dao as it's not created yet elsewhere.
-    DAO<User, Integer> userdao = new DAO<User,Integer>(User.class, true){
+    DAO<User, String> userdao = new DAO<User, String>(User.class, true){
       
     };
     user1 = new User("test1", "testConnectionTest1@test.dk");
