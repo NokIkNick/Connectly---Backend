@@ -1,7 +1,7 @@
 package dk.connectly.controllers;
-import dk.connectly.daos.DAO;
 import dk.connectly.daos.SecurityDao;
 import dk.connectly.dtos.BlockingDTO;
+import dk.connectly.dtos.UserDTO;
 import dk.connectly.exceptions.ApiException;
 import dk.connectly.model.User;
 import io.javalin.http.Handler;
@@ -69,6 +69,22 @@ public class BlockingController {
             } catch (Exception e) {
                 ctx.status(500);
                 throw new ApiException(500 ,"Error while unblocking user" + e.getMessage());
+            }
+        };
+    }
+
+    public Handler getBlockedUsers() {
+
+        return (ctx) -> {
+            try {
+                BlockingDTO blockingDTO = ctx.bodyAsClass(BlockingDTO.class);
+                User blockingUser = securityDao.getById(blockingDTO.getBlocking_email());
+                ctx.status(200);
+                ctx.json(blockingUser.getBlockedUsers());
+            } catch (Exception e) {
+                ctx.status(500);
+                throw new ApiException(500 ,"Error while getting blocked users" + e.getMessage());
+
             }
         };
     }

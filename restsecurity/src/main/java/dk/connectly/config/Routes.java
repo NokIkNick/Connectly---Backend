@@ -60,6 +60,7 @@ public class Routes {
             path("/blocking", () -> {
                 post("/block", bc.blockUser(), roles.ANYONE);
                 post("/unblock", bc.unblockUser(), roles.ANYONE);
+                post("blocked", bc.getBlockedUsers(), roles.ANYONE);
             });
 
         };
