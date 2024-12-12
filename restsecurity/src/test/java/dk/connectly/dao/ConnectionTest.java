@@ -23,12 +23,13 @@ public class ConnectionTest {
   public static void setup(){
     cdao = ConnectionDAO.getInstance(true);
     crdao = ConnectionRequestDAO.getInstance(true);
+
     /// setup users & a anonumous dao as it's not created yet elsewhere.
-    DAO<User, Integer> userdao = new DAO<User,Integer>(User.class, true){
+    DAO<User, String> userdao = new DAO<User, String>(User.class, true){
       
     };
-    user1 = new User("test1", "testmail1@test.dk");
-    user2 = new User("test2", "testmail2@test.dk");
+    user1 = new User("test1", "testConnectionTest1@test.dk");
+    user2 = new User("test2", "testConnectionTest2@test.dk");
 
     userdao.create(user1);
     userdao.create(user2);
@@ -36,7 +37,7 @@ public class ConnectionTest {
 
   @BeforeEach
   public void setupEach(){
-    
+
   }
 
   @AfterEach
@@ -57,17 +58,20 @@ public class ConnectionTest {
       /// arrange
     /// get initial count as we need to assert on it later.
     int initialCount = cdao.getAll().size();
+    int initialCountCR = crdao.getAll().size();
 
     /// Create a request
     ConnectionRequest cr = new ConnectionRequest(user1, user2, Set.of(ConnectionType.FAMILY));
     crdao.create(cr);
+    assertEquals(initialCountCR + 1, crdao.getAll().size(), "Connection Request not made.");
 
       /// act
     //accept
-    assertDoesNotThrow(() -> cdao.acceptRequest(new ConnectionRequestDTO(cr)));
+    assertDoesNotThrow(() -> cdao.acceptRequest(new ConnectionRequestDTO(cr)), "AcceptRequest threw an error.");
 
       /// assert
-    assertEquals(initialCount + 1, cdao.getAll().size());
+    assertEquals(initialCount +1, cdao.getAll().size(), "Connection not made.");
+    assertEquals(initialCountCR, crdao.getAll().size(), "Connection Request not deleted.");
   }
 
 }

@@ -1,3 +1,9 @@
 {
-  "java.configuration.updateBuildConfiguration": "automatic"
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "cucumber.features": [
+    "restsecurity/src/test/resources/features/*.features"
+  ],
+  "cucumber.glue": [
+    "restsecurity/src/test/java/dk/connectly/stepdefinitions/*.java"
+  ]
 }
