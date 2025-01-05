@@ -30,7 +30,7 @@ public class UserDTO {
         this.lastName = user.getLastName();
     }
 
-
+    @JsonIgnore
     public String getId(){
         return getEmail();
     }

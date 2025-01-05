@@ -6,10 +6,13 @@ import dk.connectly.daos.ConnectionDAO;
 import dk.connectly.daos.ConnectionRequestDAO;
 import dk.connectly.daos.DAO;
 import dk.connectly.dtos.ConnectionRequestDTO;
+import dk.connectly.dtos.UserDTO;
+import dk.connectly.exceptions.ApiException;
 import dk.connectly.model.Connection;
 import dk.connectly.model.ConnectionRequest;
 import dk.connectly.model.User;
 import dk.connectly.utils.ConnectionType;
+import jakarta.persistence.EntityExistsException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,11 +27,11 @@ public class ConnectionRequestTest {
   public static void setup(){
     crdao = ConnectionRequestDAO.getInstance(true);
     /// setup users & a anonumous dao as it's not created yet elsewhere.
-    DAO<User, Integer> userdao = new DAO<User,Integer>(User.class, true){
+    DAO<User, String> userdao = new DAO<User, String>(User.class, true){
       
     };
-    user1 = new User("test1", "testmail1@test.dk");
-    user2 = new User("test2", "testmail2@test.dk");
+    user1 = new User("test1", "testConnectionRequestTest1@test.dk");
+    user2 = new User("test2", "testConnectionRequestTest2@test.dk");
 
     userdao.create(user1);
     userdao.create(user2);
@@ -52,7 +55,7 @@ public class ConnectionRequestTest {
   private static User user2;
 
   @Test
-  public void testAccept(){
+  public void testCreateConnection(){
       /// arrange
     /// get initial count as we need to assert on it later.
     int initialCount = crdao.getAll().size();
@@ -63,6 +66,6 @@ public class ConnectionRequestTest {
     crdao.create(cr);
 
       /// assert
-    assertEquals(initialCount + 1, crdao.getAll().size());
+    assertEquals(initialCount + 1, crdao.getAll().size(), "Connection Request not made.");
   }
 }

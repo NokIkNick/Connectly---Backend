@@ -88,3 +88,60 @@ message: Error while creating new chat: Error while creating chat: Exception aut
 timestamp: 2024-12-03T16:39:35.261602
 IP:: 127.0.0.1
 ----------------------------------------------------------------------------------
+status: 500
+message: could not execute statement [ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detail: Key (email)=(dude1@example.com) already exists.] [/* insert for dk.connectly.model.User */insert into users (firstName,lastName,password,email) values (?,?,?,?)]
+timestamp: 2024-12-12T14:32:51.061249500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: could not execute statement [ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detail: Key (email)=(dude1@example.com) already exists.] [/* insert for dk.connectly.model.User */insert into users (firstName,lastName,password,email) values (?,?,?,?)]
+timestamp: 2024-12-12T14:32:51.132491300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: could not execute statement [ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detail: Key (email)=(dude1@example.com) already exists.] [/* insert for dk.connectly.model.User */insert into users (firstName,lastName,password,email) values (?,?,?,?)]
+timestamp: 2024-12-12T14:35:48.796515600
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: could not execute statement [ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detail: Key (email)=(dude1@example.com) already exists.] [/* insert for dk.connectly.model.User */insert into users (firstName,lastName,password,email) values (?,?,?,?)]
+timestamp: 2024-12-12T14:35:48.871537700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Unrecognized field "connection" (class dk.connectly.dtos.RegisterDTO), not marked as ignorable (4 known properties: "lastName", "password", "email", "firstName"])
+ at [Source: (String)"{"connection":{"email":"dude2@example.com","firstName":null,"lastName":null,"roles":[],"id":"dude2@example.com"},"connectionTypes":["WORK"]}"; line: 1, column: 16] (through reference chain: dk.connectly.dtos.RegisterDTO["connection"])
+timestamp: 2024-12-12T14:59:29.496433700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Unrecognized field "id" (class dk.connectly.dtos.UserDTO), not marked as ignorable (4 known properties: "lastName", "firstName", "email", "roles"])
+ at [Source: (String)"{"connection":{"email":"dude2@example.com","firstName":null,"lastName":null,"roles":[],"id":"dude2@example.com"},"connectionTypes":["WORK"]}"; line: 1, column: 94] (through reference chain: dk.connectly.dtos.NewConnectionDTO["connection"]->dk.connectly.dtos.UserDTO["id"])
+timestamp: 2024-12-12T15:00:59.116234700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null
+timestamp: 2024-12-12T15:07:23.209340200
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Cannot invoke "String.split(String)" because the return value of "io.javalin.http.Context.header(String)" is null
+timestamp: 2024-12-12T15:10:25.144154700
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: Error while creating postid to load is required for loading, 500
+timestamp: 2024-12-12T15:27:04.095953500
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
+status: 500
+message: could not execute statement [ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detail: Key (email)=(dude3@example.com) already exists.] [/* insert for dk.connectly.model.User */insert into users (firstName,lastName,password,email) values (?,?,?,?)]
+timestamp: 2024-12-12T15:27:04.182994300
+IP:: 127.0.0.1
+----------------------------------------------------------------------------------
