@@ -36,14 +36,15 @@ public class RequestConnectionDef{
   private static ConnectionRequestDTO dto;
 
   private static ObjectMapper om = new ObjectMapper();
-
-  ApplicationConfig app = ApplicationConfig.getInstance()
+  
+  /* // moved to LoggedInAs_Def.java due to BeforeAll running before class initiations & due to fixing it for all features
+  public static ApplicationConfig app = ApplicationConfig.getInstance()
                 .initiateServer()
                 .setExceptionHandling()
                 .startServer(7070)
                 .setRoutes(Routes.getRoutes(true))
                 .checkSecurityRoles(true)
-                .configureCors();
+                .configureCors();*/
 
   @Given("I am logged in as a user")
   public void loggedin() {

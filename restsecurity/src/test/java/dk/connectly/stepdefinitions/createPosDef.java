@@ -1,6 +1,9 @@
 package dk.connectly.stepdefinitions;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import dk.connectly.config.ApplicationConfig;
+import dk.connectly.config.Routes;
 import dk.connectly.dtos.ConnectionRequestDTO;
 import dk.connectly.dtos.LoginDTO;
 import dk.connectly.dtos.PostDTO;
@@ -28,7 +31,7 @@ public class createPosDef {
     private static ObjectMapper om = new ObjectMapper();
 
 
-    @Given("the user is logged in")
+    /*@Given("the user is logged in")
     public void theUserIsLoggedIn() {
         HttpClient client = HttpClient.newHttpClient();
 
@@ -54,7 +57,7 @@ public class createPosDef {
         }
 
 
-    }
+    }*/
 
     @When("the user creates a post")
     public void theUserCreatesAPost() {
@@ -75,7 +78,7 @@ public class createPosDef {
             assertEquals(HttpStatus.CREATED, response.statusCode());
 
         } catch (Exception e) {
-            assertTrue(false);
+            assertTrue(false, e.getMessage());
         }
 
     }
