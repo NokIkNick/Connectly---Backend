@@ -42,6 +42,7 @@ public class Routes {
                 post("/register", sc.register(), roles.ANYONE);
             });
             path("/connection", () -> {
+                before(sc.authenticate());
                 // Using
                 post("/request/new", crc.setupRequest(), roles.ANYONE); // To Do change back to roles.USER once authenticate can correctly identify USER
                 put("/request/confirm", cc.acceptRequest(), roles.ANYONE);
